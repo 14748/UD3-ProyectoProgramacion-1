@@ -1,0 +1,12 @@
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\bin\Debug\net6.0-windows\WordleClases.deps.json
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\bin\Debug\net6.0-windows\WordleClases.dll
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\bin\Debug\net6.0-windows\WordleClases.pdb
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.vbproj.AssemblyReference.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.GeneratedMSBuildEditorConfig.editorconfig
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.AssemblyInfoInputs.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.AssemblyInfo.vb
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.vbproj.CoreCompileInputs.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.dll
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\refint\WordleClases.dll
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\WordleClases.pdb
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\WordleClases\obj\Debug\net6.0-windows\ref\WordleClases.dll

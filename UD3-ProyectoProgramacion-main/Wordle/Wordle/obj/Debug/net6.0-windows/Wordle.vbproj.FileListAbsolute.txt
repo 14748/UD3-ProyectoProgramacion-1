@@ -1,0 +1,34 @@
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.exe
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.deps.json
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.runtimeconfig.json
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.dll
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.pdb
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.vbproj.AssemblyReference.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.Form1.resources
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.vbproj.GenerateResource.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.GeneratedMSBuildEditorConfig.editorconfig
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.AssemblyInfoInputs.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.AssemblyInfo.vb
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.vbproj.CoreCompileInputs.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.dll
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\refint\Wordle.dll
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.pdb
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.genruntimeconfig.cache
+G:\Other computers\My Computer\School\Programacion\EVAL 2\03 Form\03-Forms\Wordle\Wordle\obj\Debug\net6.0-windows\ref\Wordle.dll
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.exe
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.deps.json
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.runtimeconfig.json
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.dll
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\bin\Debug\net6.0-windows\Wordle.pdb
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.vbproj.AssemblyReference.cache
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.Form1.resources
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.vbproj.GenerateResource.cache
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.AssemblyInfoInputs.cache
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.AssemblyInfo.vb
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.vbproj.CoreCompileInputs.cache
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.dll
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\refint\Wordle.dll
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.pdb
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\Wordle.genruntimeconfig.cache
+C:\Users\Ruben\Desktop\trabajo de programacion wordle\UD3-ProyectoProgramacion-main\Wordle\Wordle\obj\Debug\net6.0-windows\ref\Wordle.dll
