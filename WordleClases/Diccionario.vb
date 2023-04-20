@@ -19,6 +19,15 @@ Public Class Diccionario
         Me.Palabras.Add(palabra)
     End Sub
 
+    Public Function palbraEsValida(palabraValidar As String) As Boolean
+        For Each p In Palabras
+            If p.Texto.ToUpper = palabraValidar.ToUpper Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
     Public Function GetRandomWord(dificultad As Integer) As Palabra
         Dim palabrasPosibles = From w In Palabras Where w.Dificultad = dificultad
         Dim numeroPalabras = palabrasPosibles.Count()
