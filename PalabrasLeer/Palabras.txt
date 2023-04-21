@@ -4,3 +4,5 @@ cherry,1
 orange,3
 strawberry,2
 watermelon,3
+arbol,1
+route,3

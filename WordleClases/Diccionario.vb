@@ -19,6 +19,15 @@ Public Class Diccionario
         Me.Palabras.Add(palabra)
     End Sub
 
+    Public Function palbraEsValida(palabraValidar As String) As Boolean
+        For Each pal In Palabras
+            If pal.Texto.ToUpper = palabraValidar.ToUpper Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
     Public Function GetRandomWord(dificultad As Integer) As Palabra
         Dim palabrasPosibles = From w In Palabras Where w.Dificultad = dificultad
         Dim numeroPalabras = palabrasPosibles.Count()
@@ -27,5 +36,26 @@ Public Class Diccionario
 
         Dim randomIndex = New Random().Next(0, numeroPalabras)
         Return palabrasPosibles(randomIndex)
+    End Function
+
+    Public Function GreenYellowGray(pal As String, dificultad As Integer) As Integer()
+        'Dim palab As Palabra = GetRandomWord(dificultad)
+        Dim palab As String = "apple"
+        Dim pAr(pal.Length) As Integer
+
+        For i = 0 To palab.Length - 1
+            If palab.Chars(i) = pal.Chars(i) Then
+                pAr(i) = 0
+
+            End If
+            For j = 0 To pal.Length - 1
+                If palab.Chars(i) = pal.Chars(j) Then
+                    pAr(i) = 1
+                    Exit For
+                End If
+            Next
+            pAr(i) = 2
+        Next
+        Return pAr
     End Function
 End Class

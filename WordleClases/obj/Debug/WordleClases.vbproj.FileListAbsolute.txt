@@ -8,3 +8,13 @@ C:\Users\sprop\Desktop\Nueva carpeta\UD3-ProyectoProgramacion-dev\UD3-ProyectoPr
 C:\Users\sprop\Desktop\Nueva carpeta\UD3-ProyectoProgramacion-dev\UD3-ProyectoProgramacion-dev\WordleClases\obj\Debug\WordleClases.dll
 C:\Users\sprop\Desktop\Nueva carpeta\UD3-ProyectoProgramacion-dev\UD3-ProyectoProgramacion-dev\WordleClases\obj\Debug\WordleClases.xml
 C:\Users\sprop\Desktop\Nueva carpeta\UD3-ProyectoProgramacion-dev\UD3-ProyectoProgramacion-dev\WordleClases\obj\Debug\WordleClases.pdb
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\bin\Debug\WordleClases.dll
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\bin\Debug\WordleClases.pdb
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\bin\Debug\WordleClases.xml
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.vbproj.AssemblyReference.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.Resources.resources
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.vbproj.GenerateResource.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.vbproj.CoreCompileInputs.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.dll
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.xml
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\GitHub\WordleClases\obj\Debug\WordleClases.pdb
