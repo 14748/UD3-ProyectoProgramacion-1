@@ -46,15 +46,20 @@ Public Class Diccionario
         For i = 0 To palab.Length - 1
             If palab.Chars(i) = pal.Chars(i) Then
                 pAr(i) = 0
+            Else
+                For j = 0 To pal.Length - 1
+                    If palab.Chars(j) = pal.Chars(i) Then
+                        pAr(i) = 1
+                        Exit For
+                    Else
+                        pAr(i) = 2
+                    End If
+
+                Next
 
             End If
-            For j = 0 To pal.Length - 1
-                If palab.Chars(i) = pal.Chars(j) Then
-                    pAr(i) = 1
-                    Exit For
-                End If
-            Next
-            pAr(i) = 2
+
+
         Next
         Return pAr
     End Function

@@ -6,3 +6,5 @@ strawberry,2
 watermelon,3
 arbol,1
 route,3
+mundo,2
+papas,1

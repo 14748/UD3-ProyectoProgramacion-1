@@ -88,14 +88,14 @@ Public Class Form1
                         'Green: Correcto, en la misma posición
                         'Yellow: Correcto, pero en otra posición
                         'Gray: La letra no existe en la palabra
-                        For i = 0 To wordle.GreenYellowGray(palabraFormando, 1).Length - 1
+                        For i = 0 To palabraFormando.Length
                             Dim leterLabel As Label = CType(Me.Controls(i + sumLabel), Label)
 
-                            If wordle.GreenYellowGray(palabraFormando, 1)(i) = 2 Then
+                            If wordle.GreenYellowGray(palabraFormando, 1)(i) = 0 Then
                                 leterLabel.BackColor = Color.Green
                             ElseIf wordle.GreenYellowGray(palabraFormando, 1)(i) = 1 Then
                                 leterLabel.BackColor = Color.Yellow
-                            ElseIf wordle.GreenYellowGray(palabraFormando, 1)(i) = 0 Then
+                            ElseIf wordle.GreenYellowGray(palabraFormando, 1)(i) = 2 Then
                                 leterLabel.BackColor = Color.Gray
                             End If
                         Next
