@@ -1,0 +1,68 @@
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.exe.config
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.exe
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.pdb
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.xml
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\WordleClases.dll
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\WordleClases.pdb
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\WordleClases.xml
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.AssemblyReference.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.SuggestedBindingRedirects.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.Form1.resources
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.Resources.resources
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.GenerateResource.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.CoreCompileInputs.cache
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.CopyComplete
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.exe
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.xml
+C:\Users\PC\OneDrive\FP 1º DAM\Programación\Proyecto Juegos\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.pdb
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.exe.config
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.exe
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.pdb
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.xml
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\WordleClases.dll
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\WordleClases.pdb
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\WordleClases.xml
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.AssemblyReference.cache
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.SuggestedBindingRedirects.cache
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.Form1.resources
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.Resources.resources
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.GenerateResource.cache
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.CoreCompileInputs.cache
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.CopyComplete
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.exe
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.xml
+C:\Users\14748758743509380420\Desktop\New folder (11)\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.pdb
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.exe.config
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.exe
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.pdb
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\Wordle.xml
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\WordleClases.dll
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\WordleClases.pdb
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\bin\Debug\WordleClases.xml
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.AssemblyReference.cache
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.SuggestedBindingRedirects.cache
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.Form1.resources
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.Resources.resources
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.GenerateResource.cache
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.CoreCompileInputs.cache
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.vbproj.CopyComplete
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.exe
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.xml
+C:\Users\sprop\Desktop\Nueva carpeta (5)\io\UD3-ProyectoProgramacion-1\Wordle\obj\Debug\Wordle.pdb
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.exe.config
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.exe
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.pdb
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\Wordle.xml
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\WordleClases.dll
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\WordleClases.pdb
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\bin\Debug\WordleClases.xml
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.AssemblyReference.cache
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.Form1.resources
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.Resources.resources
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.GenerateResource.cache
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.CoreCompileInputs.cache
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.vbproj.CopyComplete
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.exe
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.xml
+C:\Users\Ruben\Desktop\UD3-ProyectoProgramacion-1-dev\Wordle\obj\Debug\Wordle.pdb

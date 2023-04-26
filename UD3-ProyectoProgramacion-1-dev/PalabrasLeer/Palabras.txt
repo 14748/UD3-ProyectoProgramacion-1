@@ -1,0 +1,7 @@
+apple,1
+arbol,1
+banana,2
+cherry,1
+orange,3
+strawberry,2
+watermelon,3
