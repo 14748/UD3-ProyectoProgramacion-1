@@ -1,5 +1,6 @@
 ﻿Public Class Palabra
     Public Property Texto As String
+
     Public Property Dificultad As Integer
     Public Property NumeroLetras As Integer
 

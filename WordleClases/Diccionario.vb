@@ -3,15 +3,7 @@
 Public Class Diccionario
     Private ReadOnly Palabras As New List(Of Palabra)
 
-    Private palabraGenerada As Palabra
-    Public Enum TipoAcierto
-        Acertado
-        Regular
-        Erroneo
-    End Enum
-
     Public Sub New(rutaArchivoLeer As String)
-
         Dim lineas() As String = File.ReadAllLines(rutaArchivoLeer)
         For Each linea In lineas
             Dim partes() As String = linea.Split(",")
@@ -36,31 +28,31 @@ Public Class Diccionario
         Return False
     End Function
 
-    Public Sub GetRandomWord(numeroChars As Integer)
-        Dim palabrasPosibles = From w In Palabras Where w.NumeroLetras = numeroChars
+    Public Function GetRandomWord(dificultad As Integer) As Palabra
+        Dim palabrasPosibles = From w In Palabras Where w.Dificultad = dificultad
         Dim numeroPalabras = palabrasPosibles.Count()
+
+        ''TODO si es 0 return nothing o lanzar excepcion
+
         Dim randomIndex = New Random().Next(0, numeroPalabras)
-        palabraGenerada = palabrasPosibles(randomIndex)
-    End Sub
+        Return palabrasPosibles(randomIndex)
+    End Function
 
-    Public Function GreenYellowGray(pal As String) As TipoAcierto()
-        ''TODO no se repita la misma palbra dos veces en una misma sesion
-        ''TODO obtener la palbra valida actual
-
+    Public Function GreenYellowGray(pal As String, dificultad As Integer) As Integer()
         'Dim palab As Palabra = GetRandomWord(dificultad)
-        Dim palab As String = palabraGenerada.Texto.ToUpper
-        Dim pAr(pal.Length) As TipoAcierto
+        Dim palab As String = "apple".ToUpper
+        Dim pAr(pal.Length) As Integer
 
         For i = 0 To palab.Length - 1
             If palab.Chars(i) = pal.Chars(i) Then
-                pAr(i) = TipoAcierto.Acertado
+                pAr(i) = 0
             Else
                 For j = 0 To pal.Length - 1
                     If palab.Chars(j) = pal.Chars(i) Then
-                        pAr(i) = TipoAcierto.Regular
+                        pAr(i) = 1
                         Exit For
                     Else
-                        pAr(i) = TipoAcierto.Erroneo
+                        pAr(i) = 2
                     End If
 
                 Next
