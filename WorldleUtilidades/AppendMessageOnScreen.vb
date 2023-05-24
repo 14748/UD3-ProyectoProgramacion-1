@@ -14,7 +14,7 @@ Public Class AppendMessageOnScreen
         If labelsToAnimate.Count < 4 Then
             Dim newLabel As New Label With {
             .Text = text,
-            .BackColor = Color.Red,
+            .BackColor = ColorTranslator.FromHtml("#d7dadc"),
             .ForeColor = Color.Black,
             .Location = New Point(x, y),
             .Font = New Font("Arial", 24, FontStyle.Bold),

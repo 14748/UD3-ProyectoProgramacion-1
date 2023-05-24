@@ -15,74 +15,74 @@ Public Class Form3
 
     End Sub
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim resultado As TipoError = Globales.listaUsuarios.ValidarUsuario(txtUserName.Text, txtPassword.Text)
+        Dim resultado As TipoError = Globales.listaUsuarios.ValidarUsuario(txtNombreUsuario.Text, txtContraseña.Text)
         If resultado <> Nothing Then
             Select Case resultado
                 Case TipoError.UsuarioVacio
-                    MensajeDeErrorLogin(lblLoginUsername, "Por favor introduzca un nombre de usuario")
+                    MensajeDeErrorLogin(lblLoginNombreUsuario, "Por favor introduzca un nombre de usuario")
                 Case TipoError.ContrasenaVacia
-                    MensajeDeErrorLogin(lblLoginPassword, "Por favor introduzca una contrasena")
+                    MensajeDeErrorLogin(lblLoginContraseña, "Por favor introduzca una contrasena")
                 Case TipoError.AmbosVacios
-                    MensajeDeErrorLogin(lblLoginUsername, "Por favor introduzca un nombre de usuario")
-                    MensajeDeErrorLogin(lblLoginPassword, "Por favor introduzca una contrasena")
+                    MensajeDeErrorLogin(lblLoginNombreUsuario, "Por favor introduzca un nombre de usuario")
+                    MensajeDeErrorLogin(lblLoginContraseña, "Por favor introduzca una contrasena")
                 Case TipoError.UsuarioNoExiste
-                    MensajeDeErrorLogin(lblLoginUsername, "El usuario no existe")
+                    MensajeDeErrorLogin(lblLoginNombreUsuario, "El usuario no existe")
                 Case TipoError.ContrasenaIncorrecta
-                    MensajeDeErrorLogin(lblLoginPassword, "La contrasena es incorrecta")
+                    MensajeDeErrorLogin(lblLoginContraseña, "La contrasena es incorrecta")
             End Select
         Else
             MsgBox("Usuario Logeado")
-            Dim word As New Wordle.Form1
+            Dim palabrita As New Wordle.Form1
             Globales.numeroFilas = 6
-            word.Show()
+            palabrita.Show()
             Me.Dispose()
         End If
     End Sub
 
-    Private Sub txtUserName_Enter(sender As Object, e As EventArgs) Handles txtUserName.Enter
-        LimpiarErrores(lblLoginUsername)
+    Private Sub txtNombreUsuario_Enter(sender As Object, e As EventArgs) Handles txtNombreUsuario.Enter
+        LimpiarErrores(lblLoginNombreUsuario)
     End Sub
 
-    Private Sub txtPassword_Enter(sender As Object, e As EventArgs) Handles txtPassword.Enter
-        LimpiarErrores(lblLoginPassword)
+    Private Sub txtContraseña_Enter(sender As Object, e As EventArgs) Handles txtContraseña.Enter
+        LimpiarErrores(lblLoginContraseña)
     End Sub
-    Private Sub txtRegisterUsername_Enter(sender As Object, e As EventArgs) Handles txtRegisterUsername.Enter
-        LimpiarErrores(lblRegisterUsername)
-    End Sub
-
-    Private Sub txtRegisterPassword_Enter(sender As Object, e As EventArgs) Handles txtRegisterPassword.Enter
-        LimpiarErrores(lblRegisterPassword)
+    Private Sub txtRegistrarNombre_Enter(sender As Object, e As EventArgs) Handles txtRegistrarNombre.Enter
+        LimpiarErrores(lblRegistrarNombre)
     End Sub
 
-    Private Sub txtRegisterRePassword_Enter(sender As Object, e As EventArgs) Handles txtRegisterRePassword.Enter
-        LimpiarErrores(lblRegisterRePassword)
+    Private Sub txtRegistrarContraseña_Enter(sender As Object, e As EventArgs) Handles txtRegistrarContraseña.Enter
+        LimpiarErrores(lblRegistrarContraseña)
     End Sub
 
-    Private Sub Register_Click(sender As Object, e As EventArgs) Handles Register.Click
-        Dim resultado As TipoError = Globales.listaUsuarios.AnadirUsuario(txtRegisterUsername.Text, txtRegisterPassword.Text, txtRegisterRePassword.Text)
+    Private Sub txtRegistrarReContraseña_Enter(sender As Object, e As EventArgs) Handles txtRegistrarReContraseña.Enter
+        LimpiarErrores(lblRegistrarReContraseña)
+    End Sub
+
+    Private Sub Registro_Click(sender As Object, e As EventArgs) Handles Register.Click
+        Dim resultado As TipoError = Globales.listaUsuarios.AnadirUsuario(txtRegistrarNombre.Text, txtRegistrarContraseña.Text, txtRegistrarReContraseña.Text)
         If resultado <> Nothing Then
             Select Case resultado
                 Case TipoError.UsuarioVacio
-                    MensajeDeErrorLogin(lblRegisterUsername, "Por favor introduzca un nombre de usuario")
+                    MensajeDeErrorLogin(lblRegistrarNombre, "Por favor introduzca un nombre de usuario")
                 Case TipoError.ContrasenaVacia
-                    MensajeDeErrorLogin(lblRegisterPassword, "Por favor introduzca una contrasena")
+                    MensajeDeErrorLogin(lblRegistrarContraseña, "Por favor introduzca una contrasena")
                 Case TipoError.RepetirContrasenaVacia
-                    MensajeDeErrorLogin(lblRegisterRePassword, "Por favor introduzca una contrasena")
+                    MensajeDeErrorLogin(lblRegistrarReContraseña, "Por favor introduzca una contrasena")
                 Case TipoError.AmbosVacios
-                    MensajeDeErrorLogin(lblRegisterUsername, "Por favor introduzca un nombre de usuario")
-                    MensajeDeErrorLogin(lblRegisterPassword, "Por favor introduzca una contrasena")
-                    MensajeDeErrorLogin(lblRegisterRePassword, "Por favor introduzca una contrasena")
+                    MensajeDeErrorLogin(lblRegistrarNombre, "Por favor introduzca un nombre de usuario")
+                    MensajeDeErrorLogin(lblRegistrarContraseña, "Por favor introduzca una contrasena")
+                    MensajeDeErrorLogin(lblRegistrarReContraseña, "Por favor introduzca una contrasena")
                 Case TipoError.UsuarioLongitudIncorrecta
-                    MensajeDeErrorLogin(lblRegisterUsername, "La longitud mayor a 4 caracteres")
+                    MensajeDeErrorLogin(lblRegistrarNombre, "La longitud mayor a 4 caracteres")
                 Case TipoError.ContrasenaLongitudIncorrecta
-                    MensajeDeErrorLogin(lblRegisterPassword, "La longitud mayor a 6 caracteres")
+                    MensajeDeErrorLogin(lblRegistrarContraseña, "La longitud mayor a 6 caracteres")
                 Case TipoError.AmbasLongitudesIncorrectas
-                    MensajeDeErrorLogin(lblRegisterUsername, "La longitud mayor a 4 caracteres")
-                    MensajeDeErrorLogin(lblRegisterPassword, "La longitud mayor a 6 caracteres")
+                    MensajeDeErrorLogin(lblRegistrarNombre, "La longitud mayor a 4 caracteres")
+                    MensajeDeErrorLogin(lblRegistrarContraseña, "La longitud mayor a 6 caracteres")
                 Case TipoError.UsuarioYaExiste
-                    MensajeDeErrorLogin(lblRegisterUsername, "El usuario ya existe")
+                    MensajeDeErrorLogin(lblRegistrarNombre, "El usuario ya existe")
                 Case TipoError.ContrasenaNoCoincide
-                    MensajeDeErrorLogin(lblRegisterRePassword, "La contrasena no coincide")
+                    MensajeDeErrorLogin(lblRegistrarReContraseña, "La contrasena no coincide")
             End Select
         Else
             MsgBox("Usuario Registrado")
@@ -101,41 +101,63 @@ Public Class Form3
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Globales.listaUsuarios = New Usuarios()
-
+        txtNombreUsuario.Text = "Usuario"
+        txtContraseña.Text = "contraseña"
+        txtRegistrarNombre.Text = "Usuario"
+        txtRegistrarContraseña.Text = "Contraseña"
+        txtRegistrarReContraseña.Text = "reintroduce la contraseña"
     End Sub
 
-    Private Sub txtRegisterUsername_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegisterUsername.GotFocus
-        If txtRegisterUsername.Text = "Usuario" Then
-            txtRegisterUsername.Text = ""
-        End If
-    End Sub
-    Private Sub txtRegisterUsername_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegisterUsername.LostFocus
-        If txtRegisterUsername.Text = "" Then
-            txtRegisterUsername.Text = "Usuario"
-        End If
-    End Sub
-    Private Sub txtRegisterPassword_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegisterPassword.GotFocus
-        If txtRegisterPassword.Text = "Contraseña" Then
-            txtRegisterPassword.Text = ""
-        End If
-    End Sub
-    Private Sub txtRegisterPassword_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegisterPassword.LostFocus
-        If txtRegisterPassword.Text = "" Then
-            txtRegisterPassword.Text = "Contraseña"
-        End If
-    End Sub
-    Private Sub txtRegisterRePassword_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegisterRePassword.GotFocus
-        If txtRegisterRePassword.Text = "reintroduce la contraseña" Then
-            txtRegisterRePassword.Text = ""
-        End If
-    End Sub
-    Private Sub txtRegisterRePassword_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegisterRePassword.LostFocus
-        If txtRegisterRePassword.Text = "" Then
-            txtRegisterRePassword.Text = "reintroduce la contraseña"
-        End If
-    End Sub
+    Private Sub txtRegistrarNombre_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegistrarNombre.GotFocus
+        If txtRegistrarNombre.Text = "Usuario" Then
+            txtRegistrarNombre.Text = ""
 
-    Private Sub pnlRegister_Paint(sender As Object, e As PaintEventArgs) Handles pnlRegister.Paint
-
+        End If
+    End Sub
+    Private Sub txtRegistrarNombre_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegistrarNombre.LostFocus
+        If txtRegistrarNombre.Text = "" Then
+            txtRegistrarNombre.Text = "Usuario"
+            Console.WriteLine("perder foco")
+        End If
+    End Sub
+    Private Sub txtRegisterPassword_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegistrarContraseña.GotFocus
+        If txtRegistrarContraseña.Text = "Contraseña" Then
+            txtRegistrarContraseña.Text = ""
+        End If
+    End Sub
+    Private Sub txtRegistrarContraseña_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegistrarContraseña.LostFocus
+        If txtRegistrarContraseña.Text = "" Then
+            txtRegistrarContraseña.Text = "Contraseña"
+        End If
+    End Sub
+    Private Sub txtRegistrarReContraseña_GotFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegistrarReContraseña.GotFocus
+        If txtRegistrarReContraseña.Text = "reintroduce la contraseña" Then
+            txtRegistrarReContraseña.Text = ""
+        End If
+    End Sub
+    Private Sub txtRegistrarReContraseña_LostFocus(ByVal sender As Object, ByVal e As EventArgs) Handles txtRegistrarReContraseña.LostFocus
+        If txtRegistrarReContraseña.Text = "" Then
+            txtRegistrarReContraseña.Text = "reintroduce la contraseña"
+        End If
+    End Sub
+    Private Sub txtNombreUsuario_GotFocus(sender As Object, e As EventArgs) Handles txtNombreUsuario.GotFocus
+        If txtNombreUsuario.Text = "Usuario" Then
+            txtNombreUsuario.Text = ""
+        End If
+    End Sub
+    Private Sub txtNombreUsuario_LostFocus(sender As Object, e As EventArgs) Handles txtNombreUsuario.LostFocus
+        If txtNombreUsuario.Text = "" Then
+            txtNombreUsuario.Text = "Usuario"
+        End If
+    End Sub
+    Private Sub txtContraseña_GotFocus(sender As Object, e As EventArgs) Handles txtContraseña.GotFocus
+        If txtContraseña.Text = "contraseña" Then
+            txtContraseña.Text = ""
+        End If
+    End Sub
+    Private Sub txtContraseña_LostFocus(sender As Object, e As EventArgs) Handles txtContraseña.LostFocus
+        If txtContraseña.Text = "" Then
+            txtContraseña.Text = "contraseña"
+        End If
     End Sub
 End Class
