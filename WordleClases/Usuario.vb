@@ -3,6 +3,10 @@
 
     Private _username As String
     Private _password As String
+    Private _partidasJugadas As Integer
+    Private _partidasGanadas As Integer
+    Private _rachaActual As Integer
+    Private _mejorRacha As Integer
 
     Public Property Username() As String
         Get
@@ -23,9 +27,41 @@
     End Property
 
     Public Property PartidasJugadas() As Integer
+        Get
+            Return _partidasJugadas
+        End Get
+        Set(value As Integer)
+            _partidasJugadas = value
+        End Set
+    End Property
+
     Public Property PartidasGanadas() As Integer
+        Get
+            Return _partidasGanadas
+        End Get
+        Set(value As Integer)
+            _partidasGanadas = value
+        End Set
+    End Property
+
     Public Property RachaActual() As Integer
+        Get
+            Return _rachaActual
+        End Get
+        Set(value As Integer)
+            _rachaActual = value
+        End Set
+    End Property
+
     Public Property MejorRacha() As Integer
+        Get
+            Return _mejorRacha
+        End Get
+        Set(value As Integer)
+            _mejorRacha = value
+        End Set
+    End Property
+
     Public Sub New(username As String, password As String, rachaActual As Integer, mejorRacha As Integer, partidasGanadas As Integer, partidasJugadas As Integer)
         Me.Username = username
         Me.Password = password
@@ -40,30 +76,8 @@
         Me.Password = password
     End Sub
 
-    Public Function IsValidUser(username As String, password As String) As Boolean
-        Return (Me.Username = username AndAlso Me.Password = password)
-    End Function
-
     Public Overloads Function Equals(other As Usuario) As Boolean Implements IEquatable(Of Usuario).Equals
         Return other IsNot Nothing AndAlso
                _username.ToUpper() = other._username.ToUpper()
     End Function
-
-    Public Sub PartidaFinalizada(esGanador As Boolean)
-        PartidasJugadas += 1
-
-        If esGanador Then
-            PartidasGanadas += 1
-            RachaActual += 1
-        Else
-            RachaActual = 0
-        End If
-
-
-        If MejorRacha < RachaActual Then
-            MejorRacha = RachaActual
-        End If
-
-        MsgBox("Partida finalizada")
-    End Sub
 End Class

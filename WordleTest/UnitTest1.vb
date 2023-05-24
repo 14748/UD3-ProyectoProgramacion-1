@@ -29,7 +29,7 @@ Imports WordleClases.Diccionario
         Dim u As New Usuario("test", "test")
         Dim word As New Diccionario(u)
         word.GetRandomWord()
-        Dim pal As String = word._palabraGenerada
+        Dim pal As String = word.PalabraGenerada
         Debug.WriteLine(pal)
         Dim real() As TipoAcierto = word.GreenYellowGray(pal)
         Dim expected() As TipoAcierto = {TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado}
@@ -47,7 +47,7 @@ Imports WordleClases.Diccionario
     'Comprobacion achivos de diccionario
     <TestMethod()> Public Sub TestArchivoDiccionario()
         Dim v As New Usuarios()
-        Assert.IsTrue(v.EstaArchivoCorrupto)
+        Assert.IsTrue(v.estaArchivoCorrupto)
     End Sub
 
     'Comprobacion archivos del usuario

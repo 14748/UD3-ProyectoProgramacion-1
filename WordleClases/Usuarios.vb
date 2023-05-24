@@ -1,34 +1,40 @@
 ﻿Imports System.IO
-Imports System.Windows.Forms
-Imports Microsoft.VisualBasic.ApplicationServices
-Public Enum TipoError
-    UsuarioVacio
-    ContrasenaVacia
-    RepetirContrasenaVacia
-    AmbosVacios
-    UsuarioLongitudIncorrecta
-    ContrasenaLongitudIncorrecta
-    AmbasLongitudesIncorrectas
-    UsuarioYaExiste
-    ContrasenaNoCoincide
 
-    UsuarioNoExiste
-    ContrasenaIncorrecta
-End Enum
 Public Class Usuarios
     Private _users As List(Of Usuario)
-    Private ReadOnly RutaFichero As String = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\..\..\PalabrasLeer"), "Usuarios.txt")
-    Public Property EstaArchivoCorrupto As Boolean = True
+    Private ReadOnly _rutaFichero As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\..\..\PalabrasLeer", "Usuarios.txt")
+    Private _estaArchivoCorrupto As Boolean = True
+    Public Enum TipoError
+        UsuarioVacio
+        ContrasenaVacia
+        RepetirContrasenaVacia
+        AmbosVacios
+        UsuarioLongitudIncorrecta
+        ContrasenaLongitudIncorrecta
+        AmbasLongitudesIncorrectas
+        UsuarioYaExiste
+        ContrasenaNoCoincide
 
+        UsuarioNoExiste
+        ContrasenaIncorrecta
+    End Enum
+    Public Property estaArchivoCorrupto() As Boolean
+        Get
+            Return _estaArchivoCorrupto
+        End Get
+        Set(ByVal value As Boolean)
+            _estaArchivoCorrupto = value
+        End Set
+    End Property
 
     Public Sub New()
         Me._users = New List(Of Usuario)
-        If File.Exists(RutaFichero) Then
-            Dim lines() As String = File.ReadAllLines(RutaFichero)
+        If File.Exists(_rutaFichero) Then
+            Dim lines() As String = File.ReadAllLines(_rutaFichero)
 
             ' Check if the file has more than one line
             If lines.Length < 1 Then
-                EstaArchivoCorrupto = False
+                _estaArchivoCorrupto = False
                 Return
             End If
 
@@ -37,23 +43,22 @@ Public Class Usuarios
 
                 ' Check if the line has exactly 6 parts
                 If values.Length <> 6 Then
-                    EstaArchivoCorrupto = False
+                    _estaArchivoCorrupto = False
                     Return
                 End If
 
                 ' Assuming the third, fourth, fifth, and sixth parts are integers
                 If Not IsNumeric(values(2)) Or Not IsNumeric(values(3)) Or Not IsNumeric(values(4)) Or Not IsNumeric(values(5)) Then
-                    EstaArchivoCorrupto = False
+                    _estaArchivoCorrupto = False
                     Return
                 End If
 
                 Me._users.Add(New Usuario(values(0), values(1), Integer.Parse(values(2)), Integer.Parse(values(3)), Integer.Parse(values(4)), Integer.Parse(values(5))))
             Next
         Else
-            EstaArchivoCorrupto = False
+            _estaArchivoCorrupto = False
         End If
     End Sub
-
 
     Public Function AnadirUsuario(username As String, password As String, repeatPassword As String) As TipoError
         Dim us As New Usuario(username, password)
@@ -114,7 +119,7 @@ Public Class Usuarios
     End Function
 
     Public Sub GuardarUsuarios()
-        Using writer As New System.IO.StreamWriter(RutaFichero)
+        Using writer As New System.IO.StreamWriter(_rutaFichero)
             For Each user As Usuario In Me._users
                 writer.WriteLine(user.Username & ":" & user.Password & ":" & user.RachaActual & ":" & user.MejorRacha & ":" & user.PartidasGanadas & ":" & user.PartidasJugadas)
             Next
@@ -165,19 +170,27 @@ Public Class Usuarios
                 zeroPartidasGanadasUsers.Add(innerUser)
             End If
         Next
-        ' Add users with 0 PartidasGanadas at the end of the ranking list
+
         ranking.AddRange(zeroPartidasGanadasUsers)
         Return ranking
     End Function
 
-
-
-
-
-
-
-    Public Sub AgregarPuntuacion(userName As String, b As Boolean)
+    Public Sub AgregarPuntuacion(userName As String, haGanado As Boolean)
         Dim user As Usuario = BuscarUsuario(userName)
-        user.PartidaFinalizada(b)
+        user.PartidasJugadas += 1
+
+        If haGanado Then
+            user.PartidasGanadas += 1
+            user.RachaActual += 1
+        Else
+            user.RachaActual = 0
+        End If
+
+
+        If user.MejorRacha < user.RachaActual Then
+            user.MejorRacha = user.RachaActual
+        End If
+
+        MsgBox("Partida finalizada")
     End Sub
 End Class

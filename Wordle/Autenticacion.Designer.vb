@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form3
+Partial Class Autenticacion
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form3
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Autenticacion))
         Me.pnlRegister = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lblRegistrarReContraseña = New System.Windows.Forms.Label()
@@ -90,7 +90,7 @@ Partial Class Form3
         Me.pnlRegister.Controls.Add(Me.txtRegistrarNombre)
         Me.pnlRegister.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlRegister.Location = New System.Drawing.Point(0, 0)
-        Me.pnlRegister.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlRegister.Margin = New System.Windows.Forms.Padding(4)
         Me.pnlRegister.Name = "pnlRegister"
         Me.pnlRegister.Size = New System.Drawing.Size(397, 533)
         Me.pnlRegister.TabIndex = 10
@@ -100,46 +100,46 @@ Partial Class Form3
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button1.Location = New System.Drawing.Point(36, 28)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(323, 107)
         Me.Button1.TabIndex = 29
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'lblRegisterRePassword
+        'lblRegistrarReContraseña
         '
         Me.lblRegistrarReContraseña.AutoSize = True
         Me.lblRegistrarReContraseña.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.lblRegistrarReContraseña.ForeColor = System.Drawing.Color.Red
         Me.lblRegistrarReContraseña.Location = New System.Drawing.Point(23, 374)
         Me.lblRegistrarReContraseña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblRegistrarReContraseña.Name = "lblRegisterRePassword"
+        Me.lblRegistrarReContraseña.Name = "lblRegistrarReContraseña"
         Me.lblRegistrarReContraseña.Size = New System.Drawing.Size(352, 17)
         Me.lblRegistrarReContraseña.TabIndex = 27
         Me.lblRegistrarReContraseña.Text = "Invitation code is incorrect or has expired"
         Me.lblRegistrarReContraseña.Visible = False
         '
-        'lblRegisterPassword
+        'lblRegistrarContraseña
         '
         Me.lblRegistrarContraseña.AutoSize = True
         Me.lblRegistrarContraseña.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.lblRegistrarContraseña.ForeColor = System.Drawing.Color.Red
         Me.lblRegistrarContraseña.Location = New System.Drawing.Point(23, 302)
         Me.lblRegistrarContraseña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblRegistrarContraseña.Name = "lblRegisterPassword"
+        Me.lblRegistrarContraseña.Name = "lblRegistrarContraseña"
         Me.lblRegistrarContraseña.Size = New System.Drawing.Size(288, 17)
         Me.lblRegistrarContraseña.TabIndex = 26
         Me.lblRegistrarContraseña.Text = "Password Has Less Than 6 Characters"
         Me.lblRegistrarContraseña.Visible = False
         '
-        'lblRegisterUsername
+        'lblRegistrarNombre
         '
         Me.lblRegistrarNombre.AutoSize = True
         Me.lblRegistrarNombre.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.lblRegistrarNombre.ForeColor = System.Drawing.Color.Red
         Me.lblRegistrarNombre.Location = New System.Drawing.Point(23, 230)
         Me.lblRegistrarNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblRegistrarNombre.Name = "lblRegisterUsername"
+        Me.lblRegistrarNombre.Name = "lblRegistrarNombre"
         Me.lblRegistrarNombre.Size = New System.Drawing.Size(288, 17)
         Me.lblRegistrarNombre.TabIndex = 25
         Me.lblRegistrarNombre.Text = "Username Has Less Than 4 Characters"
@@ -158,15 +158,15 @@ Partial Class Form3
         Me.label1.Text = "Username Already Taken"
         Me.label1.Visible = False
         '
-        'txtRegisterRePassword
+        'txtRegistrarReContraseña
         '
         Me.txtRegistrarReContraseña.BackColor = System.Drawing.Color.Black
         Me.txtRegistrarReContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtRegistrarReContraseña.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRegistrarReContraseña.ForeColor = System.Drawing.Color.White
         Me.txtRegistrarReContraseña.Location = New System.Drawing.Point(68, 345)
-        Me.txtRegistrarReContraseña.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtRegistrarReContraseña.Name = "txtRegisterRePassword"
+        Me.txtRegistrarReContraseña.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRegistrarReContraseña.Name = "txtRegistrarReContraseña"
         Me.txtRegistrarReContraseña.Size = New System.Drawing.Size(292, 17)
         Me.txtRegistrarReContraseña.TabIndex = 3
         '
@@ -174,7 +174,7 @@ Partial Class Form3
         '
         Me.panel6.BackColor = System.Drawing.Color.White
         Me.panel6.Location = New System.Drawing.Point(27, 369)
-        Me.panel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.panel6.Margin = New System.Windows.Forms.Padding(4)
         Me.panel6.Name = "panel6"
         Me.panel6.Size = New System.Drawing.Size(333, 1)
         Me.panel6.TabIndex = 23
@@ -183,7 +183,7 @@ Partial Class Form3
         '
         Me.pictureBox7.Image = Global.Wordle.My.Resources.Resources.Authentication_Lock
         Me.pictureBox7.Location = New System.Drawing.Point(27, 336)
-        Me.pictureBox7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox7.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox7.Name = "pictureBox7"
         Me.pictureBox7.Size = New System.Drawing.Size(33, 31)
         Me.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -213,15 +213,15 @@ Partial Class Form3
         Me.label5.TabIndex = 20
         Me.label5.Text = "Already have an account?"
         '
-        'txtRegisterPassword
+        'txtRegistrarContraseña
         '
         Me.txtRegistrarContraseña.BackColor = System.Drawing.Color.Black
         Me.txtRegistrarContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtRegistrarContraseña.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.txtRegistrarContraseña.ForeColor = System.Drawing.Color.White
         Me.txtRegistrarContraseña.Location = New System.Drawing.Point(68, 272)
-        Me.txtRegistrarContraseña.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtRegistrarContraseña.Name = "txtRegisterPassword"
+        Me.txtRegistrarContraseña.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRegistrarContraseña.Name = "txtRegistrarContraseña"
         Me.txtRegistrarContraseña.Size = New System.Drawing.Size(292, 17)
         Me.txtRegistrarContraseña.TabIndex = 2
         '
@@ -245,7 +245,7 @@ Partial Class Form3
         Me.Register.Font = New System.Drawing.Font("Bahnschrift", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Register.ForeColor = System.Drawing.Color.Black
         Me.Register.Location = New System.Drawing.Point(28, 406)
-        Me.Register.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Register.Margin = New System.Windows.Forms.Padding(4)
         Me.Register.Name = "Register"
         Me.Register.Size = New System.Drawing.Size(315, 41)
         Me.Register.TabIndex = 5
@@ -256,7 +256,7 @@ Partial Class Form3
         '
         Me.panel4.BackColor = System.Drawing.Color.White
         Me.panel4.Location = New System.Drawing.Point(27, 297)
-        Me.panel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.panel4.Margin = New System.Windows.Forms.Padding(4)
         Me.panel4.Name = "panel4"
         Me.panel4.Size = New System.Drawing.Size(333, 1)
         Me.panel4.TabIndex = 13
@@ -265,7 +265,7 @@ Partial Class Form3
         '
         Me.panel5.BackColor = System.Drawing.Color.White
         Me.panel5.Location = New System.Drawing.Point(27, 225)
-        Me.panel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.panel5.Name = "panel5"
         Me.panel5.Size = New System.Drawing.Size(333, 1)
         Me.panel5.TabIndex = 14
@@ -274,7 +274,7 @@ Partial Class Form3
         '
         Me.pictureBox4.Image = Global.Wordle.My.Resources.Resources.Authentication_Lock
         Me.pictureBox4.Location = New System.Drawing.Point(27, 263)
-        Me.pictureBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox4.Name = "pictureBox4"
         Me.pictureBox4.Size = New System.Drawing.Size(33, 31)
         Me.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -285,7 +285,7 @@ Partial Class Form3
         '
         Me.pictureBox5.Image = Global.Wordle.My.Resources.Resources.Authentication_User
         Me.pictureBox5.Location = New System.Drawing.Point(27, 192)
-        Me.pictureBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox5.Name = "pictureBox5"
         Me.pictureBox5.Size = New System.Drawing.Size(33, 31)
         Me.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -296,22 +296,22 @@ Partial Class Form3
         '
         Me.pictureBox6.BackColor = System.Drawing.Color.Black
         Me.pictureBox6.Location = New System.Drawing.Point(27, 15)
-        Me.pictureBox6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox6.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox6.Name = "pictureBox6"
         Me.pictureBox6.Size = New System.Drawing.Size(347, 138)
         Me.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pictureBox6.TabIndex = 9
         Me.pictureBox6.TabStop = False
         '
-        'txtRegisterUsername
+        'txtRegistrarNombre
         '
         Me.txtRegistrarNombre.BackColor = System.Drawing.Color.Black
         Me.txtRegistrarNombre.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtRegistrarNombre.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.txtRegistrarNombre.ForeColor = System.Drawing.Color.White
         Me.txtRegistrarNombre.Location = New System.Drawing.Point(69, 201)
-        Me.txtRegistrarNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtRegistrarNombre.Name = "txtRegisterUsername"
+        Me.txtRegistrarNombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRegistrarNombre.Name = "txtRegistrarNombre"
         Me.txtRegistrarNombre.Size = New System.Drawing.Size(292, 17)
         Me.txtRegistrarNombre.TabIndex = 1
         '
@@ -338,15 +338,15 @@ Partial Class Form3
         Me.label4.TabIndex = 39
         Me.label4.Text = "Need an account?"
         '
-        'txtPassword
+        'txtContraseña
         '
         Me.txtContraseña.BackColor = System.Drawing.Color.Black
         Me.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtContraseña.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.txtContraseña.ForeColor = System.Drawing.Color.White
         Me.txtContraseña.Location = New System.Drawing.Point(67, 270)
-        Me.txtContraseña.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtContraseña.Name = "txtPassword"
+        Me.txtContraseña.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtContraseña.Name = "txtContraseña"
         Me.txtContraseña.Size = New System.Drawing.Size(292, 17)
         Me.txtContraseña.TabIndex = 31
         Me.txtContraseña.Text = "Password"
@@ -371,7 +371,7 @@ Partial Class Form3
         Me.btnLogin.Font = New System.Drawing.Font("Bahnschrift", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.Black
         Me.btnLogin.Location = New System.Drawing.Point(27, 404)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(315, 41)
         Me.btnLogin.TabIndex = 36
@@ -382,7 +382,7 @@ Partial Class Form3
         '
         Me.panel2.BackColor = System.Drawing.Color.White
         Me.panel2.Location = New System.Drawing.Point(25, 295)
-        Me.panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.panel2.Name = "panel2"
         Me.panel2.Size = New System.Drawing.Size(333, 1)
         Me.panel2.TabIndex = 34
@@ -391,7 +391,7 @@ Partial Class Form3
         '
         Me.panel1.BackColor = System.Drawing.Color.White
         Me.panel1.Location = New System.Drawing.Point(25, 223)
-        Me.panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.panel1.Name = "panel1"
         Me.panel1.Size = New System.Drawing.Size(333, 1)
         Me.panel1.TabIndex = 35
@@ -400,7 +400,7 @@ Partial Class Form3
         '
         Me.pictureBox3.Image = Global.Wordle.My.Resources.Resources.Authentication_Lock
         Me.pictureBox3.Location = New System.Drawing.Point(25, 261)
-        Me.pictureBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox3.Name = "pictureBox3"
         Me.pictureBox3.Size = New System.Drawing.Size(33, 31)
         Me.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -411,7 +411,7 @@ Partial Class Form3
         '
         Me.pictureBox2.Image = Global.Wordle.My.Resources.Resources.Authentication_User
         Me.pictureBox2.Location = New System.Drawing.Point(25, 190)
-        Me.pictureBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox2.Name = "pictureBox2"
         Me.pictureBox2.Size = New System.Drawing.Size(33, 31)
         Me.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -421,53 +421,53 @@ Partial Class Form3
         'pictureBox1
         '
         Me.pictureBox1.Location = New System.Drawing.Point(25, 14)
-        Me.pictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.pictureBox1.Name = "pictureBox1"
         Me.pictureBox1.Size = New System.Drawing.Size(347, 138)
         Me.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pictureBox1.TabIndex = 29
         Me.pictureBox1.TabStop = False
         '
-        'txtUserName
+        'txtNombreUsuario
         '
         Me.txtNombreUsuario.BackColor = System.Drawing.Color.Black
         Me.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtNombreUsuario.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.txtNombreUsuario.ForeColor = System.Drawing.Color.White
         Me.txtNombreUsuario.Location = New System.Drawing.Point(67, 199)
-        Me.txtNombreUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtNombreUsuario.Name = "txtUserName"
+        Me.txtNombreUsuario.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtNombreUsuario.Name = "txtNombreUsuario"
         Me.txtNombreUsuario.Size = New System.Drawing.Size(292, 17)
         Me.txtNombreUsuario.TabIndex = 30
         Me.txtNombreUsuario.Text = "Username"
         '
-        'lblLoginPassword
+        'lblLoginContraseña
         '
         Me.lblLoginContraseña.AutoSize = True
         Me.lblLoginContraseña.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.lblLoginContraseña.ForeColor = System.Drawing.Color.Red
         Me.lblLoginContraseña.Location = New System.Drawing.Point(21, 300)
         Me.lblLoginContraseña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblLoginContraseña.Name = "lblLoginPassword"
+        Me.lblLoginContraseña.Name = "lblLoginContraseña"
         Me.lblLoginContraseña.Size = New System.Drawing.Size(88, 17)
         Me.lblLoginContraseña.TabIndex = 41
         Me.lblLoginContraseña.Text = "Wrong HWID"
         Me.lblLoginContraseña.Visible = False
         '
-        'lblLoginUsername
+        'lblLoginNombreUsuario
         '
         Me.lblLoginNombreUsuario.AutoSize = True
         Me.lblLoginNombreUsuario.Font = New System.Drawing.Font("Consolas", 8.25!)
         Me.lblLoginNombreUsuario.ForeColor = System.Drawing.Color.Red
         Me.lblLoginNombreUsuario.Location = New System.Drawing.Point(23, 228)
         Me.lblLoginNombreUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblLoginNombreUsuario.Name = "lblLoginUsername"
+        Me.lblLoginNombreUsuario.Name = "lblLoginNombreUsuario"
         Me.lblLoginNombreUsuario.Size = New System.Drawing.Size(280, 17)
         Me.lblLoginNombreUsuario.TabIndex = 42
         Me.lblLoginNombreUsuario.Text = "Please Input Username And Password"
         Me.lblLoginNombreUsuario.Visible = False
         '
-        'Form3
+        'Autenticacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -488,9 +488,10 @@ Partial Class Form3
         Me.Controls.Add(Me.lblLoginContraseña)
         Me.Controls.Add(Me.lblLoginNombreUsuario)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "Form3"
-        Me.Text = "Form1"
+        Me.Name = "Autenticacion"
+        Me.Text = "Autenticacion"
         Me.pnlRegister.ResumeLayout(False)
         Me.pnlRegister.PerformLayout()
         CType(Me.pictureBox7, System.ComponentModel.ISupportInitialize).EndInit()

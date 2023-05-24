@@ -1,8 +1,6 @@
 ﻿Imports WordleClases
-Imports Wordle
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
-Public Class Form3
+Public Class Autenticacion
 
     Private Sub MensajeDeErrorLogin(labelActuar As Label, mensajeUsuario As String)
         If Not String.IsNullOrEmpty(mensajeUsuario) Then
@@ -15,24 +13,24 @@ Public Class Form3
 
     End Sub
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim resultado As TipoError = Globales.listaUsuarios.ValidarUsuario(txtNombreUsuario.Text, txtContraseña.Text)
+        Dim resultado As Usuarios.TipoError = Globales.listaUsuarios.ValidarUsuario(txtNombreUsuario.Text, txtContraseña.Text)
         If resultado <> Nothing Then
             Select Case resultado
-                Case TipoError.UsuarioVacio
+                Case Usuarios.TipoError.UsuarioVacio
                     MensajeDeErrorLogin(lblLoginNombreUsuario, "Por favor introduzca un nombre de usuario")
-                Case TipoError.ContrasenaVacia
+                Case Usuarios.TipoError.ContrasenaVacia
                     MensajeDeErrorLogin(lblLoginContraseña, "Por favor introduzca una contrasena")
-                Case TipoError.AmbosVacios
+                Case Usuarios.TipoError.AmbosVacios
                     MensajeDeErrorLogin(lblLoginNombreUsuario, "Por favor introduzca un nombre de usuario")
                     MensajeDeErrorLogin(lblLoginContraseña, "Por favor introduzca una contrasena")
-                Case TipoError.UsuarioNoExiste
+                Case Usuarios.TipoError.UsuarioNoExiste
                     MensajeDeErrorLogin(lblLoginNombreUsuario, "El usuario no existe")
-                Case TipoError.ContrasenaIncorrecta
+                Case Usuarios.TipoError.ContrasenaIncorrecta
                     MensajeDeErrorLogin(lblLoginContraseña, "La contrasena es incorrecta")
             End Select
         Else
             MsgBox("Usuario Logeado")
-            Dim palabrita As New Wordle.Form1
+            Dim palabrita As New Wordle.JuegoPrincipal
             Globales.numeroFilas = 6
             palabrita.Show()
             Me.Dispose()
@@ -59,29 +57,29 @@ Public Class Form3
     End Sub
 
     Private Sub Registro_Click(sender As Object, e As EventArgs) Handles Register.Click
-        Dim resultado As TipoError = Globales.listaUsuarios.AnadirUsuario(txtRegistrarNombre.Text, txtRegistrarContraseña.Text, txtRegistrarReContraseña.Text)
+        Dim resultado As Usuarios.TipoError = Globales.listaUsuarios.AnadirUsuario(txtRegistrarNombre.Text, txtRegistrarContraseña.Text, txtRegistrarReContraseña.Text)
         If resultado <> Nothing Then
             Select Case resultado
-                Case TipoError.UsuarioVacio
+                Case Usuarios.TipoError.UsuarioVacio
                     MensajeDeErrorLogin(lblRegistrarNombre, "Por favor introduzca un nombre de usuario")
-                Case TipoError.ContrasenaVacia
+                Case Usuarios.TipoError.ContrasenaVacia
                     MensajeDeErrorLogin(lblRegistrarContraseña, "Por favor introduzca una contrasena")
-                Case TipoError.RepetirContrasenaVacia
+                Case Usuarios.TipoError.RepetirContrasenaVacia
                     MensajeDeErrorLogin(lblRegistrarReContraseña, "Por favor introduzca una contrasena")
-                Case TipoError.AmbosVacios
+                Case Usuarios.TipoError.AmbosVacios
                     MensajeDeErrorLogin(lblRegistrarNombre, "Por favor introduzca un nombre de usuario")
                     MensajeDeErrorLogin(lblRegistrarContraseña, "Por favor introduzca una contrasena")
                     MensajeDeErrorLogin(lblRegistrarReContraseña, "Por favor introduzca una contrasena")
-                Case TipoError.UsuarioLongitudIncorrecta
+                Case Usuarios.TipoError.UsuarioLongitudIncorrecta
                     MensajeDeErrorLogin(lblRegistrarNombre, "La longitud mayor a 4 caracteres")
-                Case TipoError.ContrasenaLongitudIncorrecta
+                Case Usuarios.TipoError.ContrasenaLongitudIncorrecta
                     MensajeDeErrorLogin(lblRegistrarContraseña, "La longitud mayor a 6 caracteres")
-                Case TipoError.AmbasLongitudesIncorrectas
+                Case Usuarios.TipoError.AmbasLongitudesIncorrectas
                     MensajeDeErrorLogin(lblRegistrarNombre, "La longitud mayor a 4 caracteres")
                     MensajeDeErrorLogin(lblRegistrarContraseña, "La longitud mayor a 6 caracteres")
-                Case TipoError.UsuarioYaExiste
+                Case Usuarios.TipoError.UsuarioYaExiste
                     MensajeDeErrorLogin(lblRegistrarNombre, "El usuario ya existe")
-                Case TipoError.ContrasenaNoCoincide
+                Case Usuarios.TipoError.ContrasenaNoCoincide
                     MensajeDeErrorLogin(lblRegistrarReContraseña, "La contrasena no coincide")
             End Select
         Else

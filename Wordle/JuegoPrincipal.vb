@@ -3,7 +3,7 @@ Imports System.IO
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 Imports WordleClases
 Imports WorldleUtilidades
-Public Class Form1
+Public Class JuegoPrincipal
     ReadOnly appender As New AppendMessageOnScreen
     Private WithEvents escuchadorDeTeclado As KeyboardListener
     Const numeroColumnas As Integer = 5
@@ -15,19 +15,22 @@ Public Class Form1
     Dim celdaMaximaDeFila As Integer
     Dim celdaMinimaDeFila As Integer
     Dim palabraDeFilaActual As String
-    Dim grpContenedor As Panel
 
-    Dim haCargadoElJuego As Boolean = False
-    Dim leaderboardToggled As Boolean = False
-    Dim pnlRanking As New Panel With {.Dock = DockStyle.Fill}
-
-
+    Dim pnlJuegoPrincipal As Panel
+    Dim pnlInteriorClasificacion As Panel
     Dim pnlConfiguracion As New Panel With {
             .Dock = DockStyle.Fill,
             .BorderStyle = BorderStyle.FixedSingle,
             .Visible = True,
             .BackColor = Color.Black
         }
+
+    Dim haCargadoElJuego As Boolean = False
+
+    Dim haAccionadoClasificacion As Boolean = False
+
+
+
     ReadOnly cboSelectorDificultad As New ComboBox With {
             .Width = 100,
             .Height = tamañoLabel,
@@ -48,14 +51,14 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Globales.listOfArrays = New List(Of Diccionario.TipoAcierto())()
         Me.WindowState = FormWindowState.Maximized
-
-        cboSelectorDificultad.Items.AddRange({"Normal", "Avanzado", "Experto"})
         Me.Controls.Remove(pnlConfiguracion)
         Me.Controls.Remove(cboSelectorDificultad)
-        cerrar.Hide()
-        btnApliConf.Hide()
+
+        cboSelectorDificultad.Items.AddRange({"Normal", "Avanzado", "Experto"})
+        btnCerrarConfiguracion.Hide()
+        btnAplicarConfiguracion.Hide()
         pnlConfiguracion.Controls.Add(lblDificultad)
-        Panel1.Hide()
+        pnlClasificacion.Hide()
 
         cargarJuego()
 
@@ -63,38 +66,27 @@ Public Class Form1
     End Sub
 
     Private Sub cargarJuego()
-        pnlRanking.Hide()
-        'Generate random word
         Globales.Instanciadicionario.GetRandomWord()
-        MsgBox(Instanciadicionario._palabraGenerada)
+        MsgBox(Instanciadicionario.PalabraGenerada)
 
-
-
-        'Set position variables
         Dim coordenadasEjeYCentroForm = Me.Height / 2
         Dim coordenadasEjeXCentroForm = Me.Width / 2
 
-        'Position the group boxes
         grpTeclado.Location = New Point(coordenadasEjeXCentroForm - (grpTeclado.Size.Width / 2), Me.Height - grpTeclado.Size.Height - 30)
         grpMenu.Location = New Point(coordenadasEjeXCentroForm - (grpMenu.Size.Width / 2), 0)
 
-        ' Create and configure the group box
         Dim grpContenedorTest As New Panel With {
             .Size = New Size(numeroColumnas * (tamañoLabel + margenEntreLabels) + margenEntreLabels, Globales.numeroFilas * (tamañoLabel + margenEntreLabels) + margenEntreLabels),
             .BorderStyle = BorderStyle.None
         }
-        grpContenedor = grpContenedorTest
+        pnlJuegoPrincipal = grpContenedorTest
 
-        ' Position the group box at the center of the form
-        grpContenedor.Location = New Point((Me.Width - grpContenedor.Width) / 2, (Me.Height - grpContenedor.Height) / 2)
+        pnlJuegoPrincipal.Location = New Point((Me.Width - pnlJuegoPrincipal.Width) / 2, (Me.Height - pnlJuegoPrincipal.Height) / 2)
 
-        ' Add the group box to the form controls
-        Me.Controls.Add(grpContenedor)
+        Me.Controls.Add(pnlJuegoPrincipal)
 
-        ' Create font for labels
         Dim font As New Font("Arial", 24, FontStyle.Bold)
 
-        ' Add labels to the group box
         For row As Integer = 0 To Globales.numeroFilas - 1
             For col As Integer = 0 To numeroColumnas - 1
                 Dim nuevoLabel As New Label With {
@@ -105,16 +97,13 @@ Public Class Form1
             .Location = New Point(col * (tamañoLabel + margenEntreLabels) + margenEntreLabels, row * (tamañoLabel + margenEntreLabels) + margenEntreLabels),
             .Font = font
         }
-                grpContenedor.Controls.Add(nuevoLabel)
+                pnlJuegoPrincipal.Controls.Add(nuevoLabel)
             Next
         Next
 
-        'Add an invisible label to the group box
         Dim lbl As New Label With {.Visible = False}
-        grpContenedor.Controls.Add(lbl)
+        pnlJuegoPrincipal.Controls.Add(lbl)
 
-
-        'Set values for other variables
         celdaMaximaDeFila = numeroColumnas + celdaActual
         celdaMinimaDeFila = celdaActual
         haCargadoElJuego = True
@@ -122,20 +111,22 @@ Public Class Form1
     End Sub
     Private Sub EnterPresionado()
         If celdaActual <> celdaMaximaDeFila Then
-            Appender.CreateAnimatedLabel(Me, "No hay suficientes letras", grpContenedor.Location.X + (grpContenedor.Width / 2), grpContenedor.Location.Y)
+            appender.CreateAnimatedLabel(Me, "No hay suficientes letras", pnlJuegoPrincipal.Location.X + (pnlJuegoPrincipal.Width / 2), pnlJuegoPrincipal.Location.Y)
             Exit Sub
         End If
 
-        palabraDeFilaActual = palabraDeFilaActual.Substring(0, NumeroColumnas)
+        palabraDeFilaActual = palabraDeFilaActual.Substring(0, numeroColumnas)
 
         If Not Globales.Instanciadicionario.palbraEsValida(palabraDeFilaActual) Then
-            Appender.CreateAnimatedLabel(Me, "La palabra introducida no existe en nuestro diccionario", grpContenedor.Location.X + (grpContenedor.Width / 2), grpContenedor.Location.Y)
+            appender.CreateAnimatedLabel(Me, "La palabra introducida no existe en nuestro diccionario", pnlJuegoPrincipal.Location.X + (pnlJuegoPrincipal.Width / 2), pnlJuegoPrincipal.Location.Y)
             Exit Sub
         End If
+
         Dim estadoAciertosPalabraActua() As Diccionario.TipoAcierto = Globales.Instanciadicionario.GreenYellowGray(palabraDeFilaActual)
         Globales.listOfArrays.Add(estadoAciertosPalabraActua)
+
         For i = 0 To palabraDeFilaActual.Length - 1
-            Dim leterLabel As Label = CType(grpContenedor.Controls(i + celdaMinimaDeFila), Label)
+            Dim leterLabel As Label = CType(pnlJuegoPrincipal.Controls(i + celdaMinimaDeFila), Label)
             For Each control As Control In grpTeclado.Controls
                 If TypeOf control Is Button Then
                     Dim button As Button = CType(control, Button)
@@ -154,22 +145,24 @@ Public Class Form1
                 End If
             Next
         Next
+
         If Globales.Instanciadicionario.HaGanado(palabraDeFilaActual, celdaActual) Then
-            Dim frm2 As New Form2
+            Dim frm2 As New PartidaFinalizada
             frm2.Show()
-            EscuchadorDeTeclado.Dispose()
+            escuchadorDeTeclado.Dispose()
             Globales.listaUsuarios.GuardarUsuarios()
             Me.Dispose()
         End If
-        celdaMaximaDeFila += NumeroColumnas
-        celdaMinimaDeFila += NumeroColumnas
+
+        celdaMaximaDeFila += numeroColumnas
+        celdaMinimaDeFila += numeroColumnas
         palabraDeFilaActual = ""
     End Sub
 
     Private Sub ReturnPresionado(currentLabel As Label)
         If celdaActual > celdaMinimaDeFila Then
             palabraDeFilaActual = palabraDeFilaActual.Substring(0, palabraDeFilaActual.Length - 1)
-            currentLabel = CType(grpContenedor.Controls(celdaActual - 1), Label)
+            currentLabel = CType(pnlJuegoPrincipal.Controls(celdaActual - 1), Label)
             currentLabel.Text = ""
             celdaActual -= 1
             Debug.WriteLine(palabraDeFilaActual)
@@ -184,22 +177,22 @@ Public Class Form1
         End If
     End Sub
     Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnQ.Click, btnW.Click, btnR.Click, btnT.Click, btnY.Click, btnU.Click, btnI.Click, btnE.Click, btnO.Click, btnP.Click, btnA.Click, btnS.Click, btnD.Click, btnF.Click, btnG.Click, btnH.Click, btnJ.Click, btnK.Click, btnL.Click, btnÑ.Click, btnZ.Click, btnX.Click, btnC.Click, btnV.Click, btnB.Click, btnN.Click, btnM.Click
-        If celdaActual <= Globales.numeroFilas * NumeroColumnas Then
+        If celdaActual <= Globales.numeroFilas * numeroColumnas Then
             Dim button As Button = CType(sender, Button)
-            Dim currentLabel As Label = CType(grpContenedor.Controls(celdaActual), Label)
+            Dim currentLabel As Label = CType(pnlJuegoPrincipal.Controls(celdaActual), Label)
             LetraPresionada(currentLabel, button.Text)
         End If
     End Sub
 
     Private Sub btnENVIAR_Click(sender As Object, e As EventArgs) Handles btnENVIAR.Click
-        If celdaActual <= Globales.numeroFilas * NumeroColumnas Then
+        If celdaActual <= Globales.numeroFilas * numeroColumnas Then
             EnterPresionado()
         End If
     End Sub
 
     Private Sub btnELIMINAR_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If celdaActual <= Globales.numeroFilas * NumeroColumnas Then
-            Dim currentLabel As Label = CType(grpContenedor.Controls(celdaActual), Label)
+        If celdaActual <= Globales.numeroFilas * numeroColumnas Then
+            Dim currentLabel As Label = CType(pnlJuegoPrincipal.Controls(celdaActual), Label)
             ReturnPresionado(currentLabel)
         End If
     End Sub
@@ -211,15 +204,15 @@ Public Class Form1
         grpTeclado.Location = New Point(posX - (grpTeclado.Size.Width / 2), Me.Height - grpTeclado.Size.Height - 30)
         grpMenu.Location = New Point(posX - (grpMenu.Size.Width / 2), 0)
         If haCargadoElJuego Then
-            grpContenedor.Location = New Point((Me.Width - grpContenedor.Width) / 2, (Me.Height - grpContenedor.Height) / 2)
+            pnlJuegoPrincipal.Location = New Point((Me.Width - pnlJuegoPrincipal.Width) / 2, (Me.Height - pnlJuegoPrincipal.Height) / 2)
         End If
-
-
     End Sub
     Private Sub _keyboardListener_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles escuchadorDeTeclado.KeyDown
+
         Dim caracteresPermitidos As String = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+
         If celdaActual <= Globales.numeroFilas * numeroColumnas Then
-            Dim currentLabel As Label = CType(grpContenedor.Controls(celdaActual), Label)
+            Dim currentLabel As Label = CType(pnlJuegoPrincipal.Controls(celdaActual), Label)
             Debug.WriteLine($"Current Label: {celdaActual}")
 
             If caracteresPermitidos.Contains(e.KeyCode.ToString().ToUpper()) Then ''si no se ha pulsado eneter, se busca si la tecla esta en abecedario, si es asi haz ....
@@ -243,129 +236,115 @@ Public Class Form1
         Me.Controls.Add(cboSelectorDificultad)
         Me.Controls.Add(pnlConfiguracion)
 
-        pnlConfiguracion.Controls.Add(cerrar)
-        pnlConfiguracion.Controls.Add(btnApliConf)
+        pnlConfiguracion.Controls.Add(btnCerrarConfiguracion)
+        pnlConfiguracion.Controls.Add(btnAplicarConfiguracion)
         pnlConfiguracion.Show()
         cboSelectorDificultad.Show()
-        cerrar.Show()
-        btnApliConf.Show()
+        btnCerrarConfiguracion.Show()
+        btnAplicarConfiguracion.Show()
 
         pnlConfiguracion.BringToFront()
-        cerrar.BringToFront()
-        btnApliConf.BringToFront()
+        btnCerrarConfiguracion.BringToFront()
+        btnAplicarConfiguracion.BringToFront()
         cboSelectorDificultad.BringToFront()
     End Sub
-    Private Sub cerrar_Click(sender As Object, e As EventArgs) Handles cerrar.Click
-        pnlConfiguracion.Controls.Remove(cerrar)
-        Me.Controls.Remove(cerrar)
+    Private Sub cerrar_Click(sender As Object, e As EventArgs) Handles btnCerrarConfiguracion.Click
+        pnlConfiguracion.Controls.Remove(btnCerrarConfiguracion)
+        Me.Controls.Remove(btnCerrarConfiguracion)
         Me.Controls.Remove(pnlConfiguracion)
         Me.Controls.Remove(cboSelectorDificultad)
 
-        cerrar.Hide()
-        btnApliConf.Hide()
+        btnCerrarConfiguracion.Hide()
+        btnAplicarConfiguracion.Hide()
         pnlConfiguracion.Hide()
         cboSelectorDificultad.Hide()
 
     End Sub
 
-    Private Sub btnApliConf_Click(sender As Object, e As EventArgs) Handles btnApliConf.Click
+    Private Sub btnApliConf_Click(sender As Object, e As EventArgs) Handles btnAplicarConfiguracion.Click
         MsgBox("Configuración Aplicada")
-
-        'Prueba1
         If cboSelectorDificultad.SelectedItem <> "Normal" Then
-            Dim a As New Form1
+            Dim a As New JuegoPrincipal
             If cboSelectorDificultad.SelectedItem = "Avanzado" Then
-                Globales.numeroFilas = 6 - (2 - 1)
+                Globales.numeroFilas = 6 - 1
             ElseIf cboSelectorDificultad.SelectedItem = "Experto" Then
-                Globales.numeroFilas = 6 - (3 - 1)
+                Globales.numeroFilas = 6 - 2
             Else
                 Globales.numeroFilas = 6
             End If
             a.Show()
             Me.Dispose()
         End If
-
-        'If cbo.Text = 2 Then
-        '    Globales.Globales.numeroFilas = 5
-        'ElseIf cbo.Text = 3 Then
-        '    Globales.Globales.numeroFilas = 4
-        'Else
-
-        '    Globales.numeroFilas = 6
-        'End If
-
-        'CargarJuego()
     End Sub
 
     Private Sub btnbarras_Click(sender As Object, e As EventArgs) Handles btnbarras.Click
-        If Not leaderboardToggled Then
-            Panel1.Show()
-            Panel1.Controls.Add(btnbarras)
-            btnbarras.Location = New Point(Me.Size.Width / 2, Me.Size.Height / 2)
+        If Not haAccionadoClasificacion Then
+            If pnlInteriorClasificacion Is Nothing Then
+                pnlInteriorClasificacion = New Panel()
+                Dim headers As String() = {"Usuario", "Partidas Jugadas", "Partidas Ganadas", "Racha Actual", "Mejor Racha"}
+                Dim left As Integer = 0
+                Dim maxWidth As Integer = 0
+                For Each header As String In headers
+                    Dim headerLabel As New Label()
+                    headerLabel.Text = header
+                    headerLabel.Top = 0
+                    headerLabel.Left = left
+                    headerLabel.Font = New Font(headerLabel.Font, FontStyle.Bold)
+                    pnlInteriorClasificacion.Controls.Add(headerLabel)
+                    left += headerLabel.Width + 5
+                    maxWidth = Math.Max(maxWidth, headerLabel.Width)
+                Next
+
+                Dim top As Integer = 30
+                Dim ranking As List(Of Usuario) = Globales.listaUsuarios.GetRanking()
+                Dim count As Integer = 0
+
+                For Each usuario As Usuario In ranking
+                    If count >= 8 Then
+                        Exit For
+                    End If
+
+                    Dim labels() As Label = {New Label(), New Label(), New Label(), New Label(), New Label()}
+                    Dim properties() As String = {usuario.Username, usuario.PartidasJugadas.ToString(), usuario.PartidasGanadas.ToString(), usuario.RachaActual.ToString(), usuario.MejorRacha.ToString()}
+                    left = 0
+                    For i As Integer = 0 To labels.Length - 1
+                        labels(i).Text = properties(i)
+                        labels(i).Top = top
+                        labels(i).Left = left
+                        labels(i).Width = maxWidth
+                        labels(i).BorderStyle = BorderStyle.Fixed3D
+                        pnlInteriorClasificacion.Controls.Add(labels(i))
+                        left += labels(i).Width + 5
+                    Next
+                    top += 60
+                    count += 1
+                Next
+
+                btnbarras.Location = New Point((pnlInteriorClasificacion.Width - btnbarras.Width) / 2, top + 10)
+                pnlInteriorClasificacion.Controls.Add(btnbarras)
+
+                pnlInteriorClasificacion.Width = left
+                pnlInteriorClasificacion.Height = top + btnbarras.Height + 20
+                pnlInteriorClasificacion.Location = New Point((pnlClasificacion.Width - pnlInteriorClasificacion.Width) / 2, (pnlClasificacion.Height - pnlInteriorClasificacion.Height) / 2)
+
+                pnlClasificacion.Controls.Add(pnlInteriorClasificacion)
+            Else
+                pnlInteriorClasificacion.Show()
+            End If
+
+            pnlInteriorClasificacion.Controls.Add(btnbarras)
+            btnbarras.Location = New Point((pnlInteriorClasificacion.Width - btnbarras.Width) / 2, pnlInteriorClasificacion.Height - btnbarras.Height - 10)
+
+            pnlClasificacion.Show()
         Else
-            Panel1.Hide()
             grpMenu.Controls.Add(btnbarras)
             btnbarras.Location = New Point(1, 46)
+
+            pnlInteriorClasificacion.Hide()
+            pnlClasificacion.Hide()
         End If
-
-        btnbarras.BringToFront()
-        leaderboardToggled = Not leaderboardToggled
-        Dim ranking As List(Of Usuario) = Globales.listaUsuarios.GetRanking()
-
-        ' Create inner panel
-        Dim innerPanel As New Panel()
-
-        ' Create header labels
-        Dim headers As String() = {"Username", "Games Played", "Games Won", "Current Streak", "Best Streak"}
-        Dim left As Integer = 0
-        Dim maxWidth As Integer = 0
-        For Each header As String In headers
-            Dim headerLabel As New Label()
-            headerLabel.Text = header
-            headerLabel.Top = 0
-            headerLabel.Left = left
-            headerLabel.Font = New Font(headerLabel.Font, FontStyle.Bold) ' Make it bold
-            innerPanel.Controls.Add(headerLabel)
-            left += headerLabel.Width + 5
-            maxWidth = Math.Max(maxWidth, headerLabel.Width)
-        Next
-
-        Dim top As Integer = 30 ' Adjust top for data labels
-        For Each usuario As Usuario In ranking
-            ' Create labels for each property
-            Dim labels() As Label = {New Label(), New Label(), New Label(), New Label(), New Label()}
-            Dim properties() As String = {usuario.Username, usuario.PartidasJugadas.ToString(), usuario.PartidasGanadas.ToString(), usuario.RachaActual.ToString(), usuario.MejorRacha.ToString()}
-
-            left = 0
-            For i As Integer = 0 To labels.Length - 1
-                labels(i).Text = properties(i)
-                labels(i).Top = top
-                labels(i).Left = left
-                labels(i).Width = maxWidth
-                labels(i).BorderStyle = BorderStyle.Fixed3D
-                innerPanel.Controls.Add(labels(i))
-                left += labels(i).Width + 5
-            Next
-
-            top += 60
-        Next
-
-        ' Adjust size and position of the inner panel
-        innerPanel.Width = left
-        innerPanel.Height = top
-        innerPanel.Location = New Point((Panel1.Width - innerPanel.Width) / 2, (Panel1.Height - innerPanel.Height) / 2)
-
-        ' Add inner panel to Panel1
-        Panel1.Controls.Add(innerPanel)
+        haAccionadoClasificacion = Not haAccionadoClasificacion
     End Sub
-
-
-
-
-
-
-
-
 
     Private Sub Form1_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         If haCargadoElJuego Then

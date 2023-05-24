@@ -1,7 +1,7 @@
 ﻿Imports System.Drawing.Printing
 Imports WordleClases
 
-Public Class Form2
+Public Class PartidaFinalizada
 
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -9,17 +9,17 @@ Public Class Form2
         lblmejorracha.Text = Globales.User.MejorRacha
         lblpartidasganadas.Text = Globales.User.PartidasGanadas
         lblpartidasjugadas.Text = Globales.User.PartidasJugadas
-        lblpalabraadecuada.Text = Globales.Instanciadicionario._palabraGenerada
+        lblpalabraadecuada.Text = Globales.Instanciadicionario.PalabraGenerada
 
-        Dim groupBox As New GroupBox()
-        groupBox.Location = New Point((Me.Width / 2) - (groupBox.Width / 2), (Me.Height / 2) - (groupBox.Height * 2.5)) ' Change this as per your requirements
+        Dim pnlEstadisticaPartidaVisual As New Panel() With {.BorderStyle = BorderStyle.None}
+        pnlEstadisticaPartidaVisual.Location = New Point((Me.Width / 2) - (pnlEstadisticaPartidaVisual.Width / 2), (Me.Height / 2) - (pnlEstadisticaPartidaVisual.Height * 2.5)) ' Change this as per your requirements
 
         Dim rows As Integer = 6
         Dim cols As Integer = 5
         Dim labelSize As Integer = 50
         Dim labelSpacing As Integer = 1
 
-        groupBox.Size = New Size(5 * (labelSize + labelSpacing) + labelSpacing, 6 * (labelSize + labelSpacing) + labelSpacing)
+        pnlEstadisticaPartidaVisual.Size = New Size(5 * (labelSize + labelSpacing) + labelSpacing, 6 * (labelSize + labelSpacing) + labelSpacing)
 
         For i As Integer = 0 To rows - 1
             Debug.WriteLine(i)
@@ -42,17 +42,17 @@ Public Class Form2
                         Case Else
                             label.BackColor = Color.White
                     End Select
-                    groupBox.Controls.Add(label)
+                    pnlEstadisticaPartidaVisual.Controls.Add(label)
                 End If
             Next
         Next
 
         ' Add groupBox to your form
-        Me.Controls.Add(groupBox)
+        Me.Controls.Add(pnlEstadisticaPartidaVisual)
 
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnreintentar.Click
-        Dim frm1 As New Form1
+        Dim frm1 As New JuegoPrincipal
         frm1.Show()
         Me.Dispose()
 

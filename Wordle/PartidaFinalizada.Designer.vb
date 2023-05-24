@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form2
+Partial Class PartidaFinalizada
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,6 +22,7 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PartidaFinalizada))
         Me.btnreintentar = New System.Windows.Forms.Button()
         Me.btnfinalizar = New System.Windows.Forms.Button()
         Me.lblpalabradia = New System.Windows.Forms.Label()
@@ -234,7 +235,7 @@ Partial Class Form2
         Me.lblpartidasganadas.TabIndex = 25
         Me.lblpartidasganadas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Form2
+        'PartidaFinalizada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -258,9 +259,10 @@ Partial Class Form2
         Me.Controls.Add(Me.txtpalabradia)
         Me.Controls.Add(Me.btnfinalizar)
         Me.Controls.Add(Me.btnreintentar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Name = "PartidaFinalizada"
+        Me.Text = "Partida Finalizada"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

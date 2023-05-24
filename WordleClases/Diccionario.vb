@@ -1,19 +1,26 @@
 ﻿Imports System.IO
-Imports System.Windows.Forms
-Imports System.Windows.Forms.LinkLabel
 
 Public Class Diccionario
-    Private ReadOnly Palabras As New List(Of String)
-    Private ReadOnly RutaFichero As String = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\..\..\PalabrasLeer"), "Palabras.txt")
-    Private palabraGenerada As String
-    Private user As Usuario
-    Public EstaArchivoCorrupto As Boolean = True
-
-    Public ReadOnly Property _palabraGenerada
+    Private _palabras As New List(Of String)
+    Private _rutaFichero As String = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\..\..\PalabrasLeer"), "Palabras.txt")
+    Private _usuario As Usuario
+    Private _estaArchivoCorrupto As Boolean = True
+    Public Property estaArchivoCorrupto() As Boolean
         Get
-            Return palabraGenerada
+            Return _estaArchivoCorrupto
+        End Get
+        Set(ByVal value As Boolean)
+            _estaArchivoCorrupto = value
+        End Set
+    End Property
+
+    Private _palabraGenerada As String
+    Public ReadOnly Property PalabraGenerada
+        Get
+            Return _palabraGenerada
         End Get
     End Property
+
     Public Enum TipoAcierto
         Acertado
         Regular
@@ -21,9 +28,9 @@ Public Class Diccionario
     End Enum
 
     Public Sub New(user As Usuario)
-        Me.user = user
-        If File.Exists(RutaFichero) Then
-            Dim lineas() As String = File.ReadAllLines(RutaFichero)
+        Me._usuario = user
+        If File.Exists(_rutaFichero) Then
+            Dim lineas() As String = File.ReadAllLines(_rutaFichero)
             If lineas.Length <> 1 Then
                 EstaArchivoCorrupto = False
                 MsgBox("The file contains only one line.")
@@ -45,7 +52,7 @@ Public Class Diccionario
 
                 For Each linea In lineas
                     Dim partes() As String = linea.Split(",")
-                    Palabras = partes.ToList
+                    _palabras = partes.ToList
                 Next
             End If
         Else
@@ -54,14 +61,12 @@ Public Class Diccionario
         End If
     End Sub
 
-
-
     Public Sub AddWord(palabra As String)
-        Me.Palabras.Add(palabra)
+        Me._palabras.Add(palabra)
     End Sub
 
     Public Function palbraEsValida(palabraValidar As String) As Boolean
-        For Each p In Palabras
+        For Each p In _palabras
             If p.ToUpper = palabraValidar.ToUpper Then
                 Return True
             End If
@@ -71,19 +76,15 @@ Public Class Diccionario
 
     Public Sub GetRandomWord()
 
-        Dim numeroPalabras = Palabras.Count()
+        Dim numeroPalabras = _palabras.Count()
         Dim randomIndex = New Random().Next(0, numeroPalabras)
-        palabraGenerada = Palabras(randomIndex)
+        _palabraGenerada = _palabras(randomIndex)
 
 
     End Sub
 
     Public Function GreenYellowGray(pal As String) As TipoAcierto()
-        ''TODO no se repita la misma palbra dos veces en una misma sesion
-        ''TODO obtener la palbra valida actual
-
-        'Dim palab As Palabra = GetRandomWord(dificultad)
-        Dim palab As String = palabraGenerada.ToUpper
+        Dim palab As String = _palabraGenerada.ToUpper
         Dim pAr(pal.Length) As TipoAcierto
 
         For i = 0 To palab.Length - 1
@@ -108,14 +109,11 @@ Public Class Diccionario
     End Function
 
     Public Function HaGanado(palabraformada As String, indexLabelActual As Integer) As Boolean
-
-
-        If palabraformada.ToUpper = palabraGenerada.ToUpper Then
-            Globales.listaUsuarios.AgregarPuntuacion(user.Username, True)
-            'user.PartidaFinalizada(True)
+        If palabraformada.ToUpper = _palabraGenerada.ToUpper Then
+            Globales.listaUsuarios.AgregarPuntuacion(_usuario.Username, True)
             Return True
         ElseIf indexLabelActual = Globales.numeroFilas * 5 Then
-            Globales.listaUsuarios.AgregarPuntuacion(user.Username, False)
+            Globales.listaUsuarios.AgregarPuntuacion(_usuario.Username, False)
             Return True
         End If
         Return False

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class JuegoPrincipal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(JuegoPrincipal))
         Me.btnENVIAR = New System.Windows.Forms.Button()
         Me.btnM = New System.Windows.Forms.Button()
         Me.btnN = New System.Windows.Forms.Button()
@@ -53,14 +53,14 @@ Partial Class Form1
         Me.btnQ = New System.Windows.Forms.Button()
         Me.grpTeclado = New System.Windows.Forms.Panel()
         Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnApliConf = New System.Windows.Forms.Button()
-        Me.cerrar = New System.Windows.Forms.Button()
+        Me.btnAplicarConfiguracion = New System.Windows.Forms.Button()
+        Me.btnCerrarConfiguracion = New System.Windows.Forms.Button()
         Me.grpMenu = New System.Windows.Forms.Panel()
         Me.lbllapalabra = New System.Windows.Forms.Label()
         Me.btnbarras = New System.Windows.Forms.Button()
         Me.lbldeldia = New System.Windows.Forms.Label()
         Me.btnconfig = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlClasificacion = New System.Windows.Forms.Panel()
         Me.grpTeclado.SuspendLayout()
         Me.grpMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -395,36 +395,36 @@ Partial Class Form1
         Me.btnEliminar.TabIndex = 161
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
-        'btnApliConf
+        'btnAplicarConfiguracion
         '
-        Me.btnApliConf.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnApliConf.ForeColor = System.Drawing.Color.Black
-        Me.btnApliConf.Location = New System.Drawing.Point(803, 155)
-        Me.btnApliConf.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnApliConf.Name = "btnApliConf"
-        Me.btnApliConf.Size = New System.Drawing.Size(180, 55)
-        Me.btnApliConf.TabIndex = 165
-        Me.btnApliConf.Text = "Aplicar Configuración"
-        Me.btnApliConf.UseVisualStyleBackColor = True
+        Me.btnAplicarConfiguracion.Font = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAplicarConfiguracion.ForeColor = System.Drawing.Color.Black
+        Me.btnAplicarConfiguracion.Location = New System.Drawing.Point(803, 155)
+        Me.btnAplicarConfiguracion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnAplicarConfiguracion.Name = "btnAplicarConfiguracion"
+        Me.btnAplicarConfiguracion.Size = New System.Drawing.Size(180, 55)
+        Me.btnAplicarConfiguracion.TabIndex = 165
+        Me.btnAplicarConfiguracion.Text = "Aplicar Configuración"
+        Me.btnAplicarConfiguracion.UseVisualStyleBackColor = True
         '
-        'cerrar
+        'btnCerrarConfiguracion
         '
-        Me.cerrar.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cerrar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cerrar.Location = New System.Drawing.Point(548, 21)
-        Me.cerrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cerrar.Name = "cerrar"
-        Me.cerrar.Size = New System.Drawing.Size(55, 48)
-        Me.cerrar.TabIndex = 164
-        Me.cerrar.Text = "X"
-        Me.cerrar.UseVisualStyleBackColor = True
+        Me.btnCerrarConfiguracion.Font = New System.Drawing.Font("Arial Rounded MT Bold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerrarConfiguracion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnCerrarConfiguracion.Location = New System.Drawing.Point(548, 21)
+        Me.btnCerrarConfiguracion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCerrarConfiguracion.Name = "btnCerrarConfiguracion"
+        Me.btnCerrarConfiguracion.Size = New System.Drawing.Size(55, 48)
+        Me.btnCerrarConfiguracion.TabIndex = 164
+        Me.btnCerrarConfiguracion.Text = "X"
+        Me.btnCerrarConfiguracion.UseVisualStyleBackColor = True
         '
         'grpMenu
         '
         Me.grpMenu.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.grpMenu.Controls.Add(Me.lbllapalabra)
         Me.grpMenu.Controls.Add(Me.btnbarras)
-        Me.grpMenu.Controls.Add(Me.cerrar)
+        Me.grpMenu.Controls.Add(Me.btnCerrarConfiguracion)
         Me.grpMenu.Controls.Add(Me.lbldeldia)
         Me.grpMenu.Controls.Add(Me.btnconfig)
         Me.grpMenu.Location = New System.Drawing.Point(331, 14)
@@ -459,7 +459,7 @@ Partial Class Form1
         '
         Me.lbldeldia.Font = New System.Drawing.Font("Segoe UI", 15.25!)
         Me.lbldeldia.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lbldeldia.Location = New System.Drawing.Point(271, 66)
+        Me.lbldeldia.Location = New System.Drawing.Point(300, 66)
         Me.lbldeldia.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbldeldia.Name = "lbldeldia"
         Me.lbldeldia.Size = New System.Drawing.Size(241, 48)
@@ -476,29 +476,30 @@ Partial Class Form1
         Me.btnconfig.TabIndex = 131
         Me.btnconfig.UseVisualStyleBackColor = True
         '
-        'Panel1
+        'pnlClasificacion
         '
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1321, 922)
-        Me.Panel1.TabIndex = 167
+        Me.pnlClasificacion.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlClasificacion.Location = New System.Drawing.Point(0, 0)
+        Me.pnlClasificacion.Name = "pnlClasificacion"
+        Me.pnlClasificacion.Size = New System.Drawing.Size(1321, 922)
+        Me.pnlClasificacion.TabIndex = 167
         '
-        'Form1
+        'JuegoPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(19, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1321, 922)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlClasificacion)
         Me.Controls.Add(Me.grpMenu)
-        Me.Controls.Add(Me.btnApliConf)
+        Me.Controls.Add(Me.btnAplicarConfiguracion)
         Me.Controls.Add(Me.grpTeclado)
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "JuegoPrincipal"
+        Me.Text = "Wordle"
         Me.grpTeclado.ResumeLayout(False)
         Me.grpMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -533,13 +534,13 @@ Partial Class Form1
     Friend WithEvents btnW As Button
     Friend WithEvents btnQ As Button
     Friend WithEvents grpTeclado As Panel
-    Friend WithEvents btnApliConf As Button
-    Friend WithEvents cerrar As Button
+    Friend WithEvents btnAplicarConfiguracion As Button
+    Friend WithEvents btnCerrarConfiguracion As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents grpMenu As Panel
     Friend WithEvents lbllapalabra As Label
     Friend WithEvents btnbarras As Button
     Friend WithEvents lbldeldia As Label
     Friend WithEvents btnconfig As Button
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlClasificacion As Panel
 End Class
