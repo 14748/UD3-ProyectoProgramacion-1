@@ -18,7 +18,7 @@ Public Class Form1
     Dim grpContenedor As Panel
 
     Dim haCargadoElJuego As Boolean = False
-
+    Dim leaderboardToggled As Boolean = False
     Dim pnlRanking As New Panel With {.Dock = DockStyle.Fill}
 
 
@@ -298,18 +298,73 @@ Public Class Form1
     End Sub
 
     Private Sub btnbarras_Click(sender As Object, e As EventArgs) Handles btnbarras.Click
-        Panel1.Show()
+        If Not leaderboardToggled Then
+            Panel1.Show()
+            Panel1.Controls.Add(btnbarras)
+            btnbarras.Location = New Point(Me.Size.Width / 2, Me.Size.Height / 2)
+        Else
+            Panel1.Hide()
+            grpMenu.Controls.Add(btnbarras)
+            btnbarras.Location = New Point(1, 46)
+        End If
+
+        btnbarras.BringToFront()
+        leaderboardToggled = Not leaderboardToggled
         Dim ranking As List(Of Usuario) = Globales.listaUsuarios.GetRanking()
 
-        Dim top As Integer = 0
-        For Each usuario As Usuario In ranking
-            Dim newLabel As New Label()
-            newLabel.Text = usuario.Username & ": " & usuario.PartidasGanadas.ToString()
-            newLabel.Top = top
-            top += 60
-            Panel1.Controls.Add(newLabel)
+        ' Create inner panel
+        Dim innerPanel As New Panel()
+
+        ' Create header labels
+        Dim headers As String() = {"Username", "Games Played", "Games Won", "Current Streak", "Best Streak"}
+        Dim left As Integer = 0
+        Dim maxWidth As Integer = 0
+        For Each header As String In headers
+            Dim headerLabel As New Label()
+            headerLabel.Text = header
+            headerLabel.Top = 0
+            headerLabel.Left = left
+            headerLabel.Font = New Font(headerLabel.Font, FontStyle.Bold) ' Make it bold
+            innerPanel.Controls.Add(headerLabel)
+            left += headerLabel.Width + 5
+            maxWidth = Math.Max(maxWidth, headerLabel.Width)
         Next
+
+        Dim top As Integer = 30 ' Adjust top for data labels
+        For Each usuario As Usuario In ranking
+            ' Create labels for each property
+            Dim labels() As Label = {New Label(), New Label(), New Label(), New Label(), New Label()}
+            Dim properties() As String = {usuario.Username, usuario.PartidasJugadas.ToString(), usuario.PartidasGanadas.ToString(), usuario.RachaActual.ToString(), usuario.MejorRacha.ToString()}
+
+            left = 0
+            For i As Integer = 0 To labels.Length - 1
+                labels(i).Text = properties(i)
+                labels(i).Top = top
+                labels(i).Left = left
+                labels(i).Width = maxWidth
+                labels(i).BorderStyle = BorderStyle.Fixed3D
+                innerPanel.Controls.Add(labels(i))
+                left += labels(i).Width + 5
+            Next
+
+            top += 60
+        Next
+
+        ' Adjust size and position of the inner panel
+        innerPanel.Width = left
+        innerPanel.Height = top
+        innerPanel.Location = New Point((Panel1.Width - innerPanel.Width) / 2, (Panel1.Height - innerPanel.Height) / 2)
+
+        ' Add inner panel to Panel1
+        Panel1.Controls.Add(innerPanel)
     End Sub
+
+
+
+
+
+
+
 
 
     Private Sub Form1_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate

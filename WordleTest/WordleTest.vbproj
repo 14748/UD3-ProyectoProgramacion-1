@@ -121,6 +121,14 @@
       <Project>{d7015d86-04ca-4e5d-b698-a4d088fa5d48}</Project>
       <Name>WordleClases</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wordle\Wordle.vbproj">
+      <Project>{d863e2cf-77ea-4927-85bc-15a479c2369b}</Project>
+      <Name>Wordle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorldleUtilidades\WorldleUtilidades.vbproj">
+      <Project>{05c3edfd-c862-4d74-9478-4ae41d2e0f11}</Project>
+      <Name>WorldleUtilidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

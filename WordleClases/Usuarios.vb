@@ -18,16 +18,42 @@ End Enum
 Public Class Usuarios
     Private _users As List(Of Usuario)
     Private ReadOnly RutaFichero As String = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\..\..\PalabrasLeer"), "Usuarios.txt")
+    Public Property EstaArchivoCorrupto As Boolean = True
 
 
     Public Sub New()
         Me._users = New List(Of Usuario)
-        Dim lines() As String = File.ReadAllLines(RutaFichero)
-        For Each line As String In lines
-            Dim values() As String = line.Split(":")
-            Me._users.Add(New Usuario(values(0), values(1), values(2), values(3), values(4), values(5)))
-        Next
+        If File.Exists(RutaFichero) Then
+            Dim lines() As String = File.ReadAllLines(RutaFichero)
+
+            ' Check if the file has more than one line
+            If lines.Length < 1 Then
+                EstaArchivoCorrupto = False
+                Return
+            End If
+
+            For Each line As String In lines
+                Dim values() As String = line.Split(":")
+
+                ' Check if the line has exactly 6 parts
+                If values.Length <> 6 Then
+                    EstaArchivoCorrupto = False
+                    Return
+                End If
+
+                ' Assuming the third, fourth, fifth, and sixth parts are integers
+                If Not IsNumeric(values(2)) Or Not IsNumeric(values(3)) Or Not IsNumeric(values(4)) Or Not IsNumeric(values(5)) Then
+                    EstaArchivoCorrupto = False
+                    Return
+                End If
+
+                Me._users.Add(New Usuario(values(0), values(1), Integer.Parse(values(2)), Integer.Parse(values(3)), Integer.Parse(values(4)), Integer.Parse(values(5))))
+            Next
+        Else
+            EstaArchivoCorrupto = False
+        End If
     End Sub
+
 
     Public Function AnadirUsuario(username As String, password As String, repeatPassword As String) As TipoError
         Dim us As New Usuario(username, password)

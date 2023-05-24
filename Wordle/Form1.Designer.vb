@@ -478,9 +478,10 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(178, 83)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(893, 424)
+        Me.Panel1.Size = New System.Drawing.Size(1321, 922)
         Me.Panel1.TabIndex = 167
         '
         'Form1

@@ -1,11 +1,13 @@
 ﻿Imports System.IO
 Imports System.Windows.Forms
+Imports System.Windows.Forms.LinkLabel
 
 Public Class Diccionario
     Private ReadOnly Palabras As New List(Of String)
     Private ReadOnly RutaFichero As String = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\..\..\PalabrasLeer"), "Palabras.txt")
     Private palabraGenerada As String
     Private user As Usuario
+    Public EstaArchivoCorrupto As Boolean = True
 
     Public ReadOnly Property _palabraGenerada
         Get
@@ -20,15 +22,38 @@ Public Class Diccionario
 
     Public Sub New(user As Usuario)
         Me.user = user
-        Dim lineas() As String = File.ReadAllLines(RutaFichero)
-        For Each linea In lineas
-            Dim partes() As String = linea.Split(",")
-            Palabras = partes.ToList
-            'For Each texto In partes
-            '    Palabras.Add(texto)
-            'Next
-        Next
+        If File.Exists(RutaFichero) Then
+            Dim lineas() As String = File.ReadAllLines(RutaFichero)
+            If lineas.Length <> 1 Then
+                EstaArchivoCorrupto = False
+                MsgBox("The file contains only one line.")
+            Else
+                For Each line As String In lineas
+                    Dim parts As String() = line.Split(","c)
+                    If parts.Length > 0 Then
+                        For Each part As String In parts
+                            If Not System.Text.RegularExpressions.Regex.IsMatch(part, "^[a-zA-ZñÑ]+$") OrElse part.Length <> 5 Then
+                                EstaArchivoCorrupto = False
+                                Exit For
+                            End If
+                        Next
+                    Else
+                        MsgBox("A line in the file does not contain any comma-separated parts.")
+                        EstaArchivoCorrupto = False
+                    End If
+                Next
+
+                For Each linea In lineas
+                    Dim partes() As String = linea.Split(",")
+                    Palabras = partes.ToList
+                Next
+            End If
+        Else
+            MsgBox("The file does not exist.")
+            EstaArchivoCorrupto = False
+        End If
     End Sub
+
 
 
     Public Sub AddWord(palabra As String)
