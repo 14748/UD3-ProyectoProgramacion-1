@@ -32,8 +32,7 @@ Public Class Diccionario
         If File.Exists(_rutaFichero) Then
             Dim lineas() As String = File.ReadAllLines(_rutaFichero)
             If lineas.Length <> 1 Then
-                EstaArchivoCorrupto = False
-                MsgBox("The file contains only one line.")
+                estaArchivoCorrupto = False
             Else
                 For Each line As String In lineas
                     Dim parts As String() = line.Split(","c)
@@ -45,7 +44,6 @@ Public Class Diccionario
                             End If
                         Next
                     Else
-                        MsgBox("A line in the file does not contain any comma-separated parts.")
                         EstaArchivoCorrupto = False
                     End If
                 Next
@@ -56,8 +54,10 @@ Public Class Diccionario
                 Next
             End If
         Else
-            MsgBox("The file does not exist.")
             EstaArchivoCorrupto = False
+        End If
+        If Not estaArchivoCorrupto Then
+            Throw New InvalidOperationException("Archivo 'Palabras.txt' corrupto o inexistente")
         End If
     End Sub
 

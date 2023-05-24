@@ -32,7 +32,6 @@ Public Class Usuarios
         If File.Exists(_rutaFichero) Then
             Dim lines() As String = File.ReadAllLines(_rutaFichero)
 
-            ' Check if the file has more than one line
             If lines.Length < 1 Then
                 _estaArchivoCorrupto = False
                 Return
@@ -41,13 +40,11 @@ Public Class Usuarios
             For Each line As String In lines
                 Dim values() As String = line.Split(":")
 
-                ' Check if the line has exactly 6 parts
                 If values.Length <> 6 Then
                     _estaArchivoCorrupto = False
                     Return
                 End If
 
-                ' Assuming the third, fourth, fifth, and sixth parts are integers
                 If Not IsNumeric(values(2)) Or Not IsNumeric(values(3)) Or Not IsNumeric(values(4)) Or Not IsNumeric(values(5)) Then
                     _estaArchivoCorrupto = False
                     Return
@@ -57,6 +54,9 @@ Public Class Usuarios
             Next
         Else
             _estaArchivoCorrupto = False
+        End If
+        If Not estaArchivoCorrupto Then
+            Throw New InvalidOperationException("Archivo 'Usuarios.txt' corrupto o inexistente")
         End If
     End Sub
 
@@ -190,7 +190,5 @@ Public Class Usuarios
         If user.MejorRacha < user.RachaActual Then
             user.MejorRacha = user.RachaActual
         End If
-
-        MsgBox("Partida finalizada")
     End Sub
 End Class

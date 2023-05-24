@@ -48,7 +48,7 @@ Public Class JuegoPrincipal
             .Font = New Font("Arial", 18, FontStyle.Bold)
     }
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Globales.listOfArrays = New List(Of Diccionario.TipoAcierto())()
         Me.WindowState = FormWindowState.Maximized
         Me.Controls.Remove(pnlConfiguracion)
@@ -67,7 +67,6 @@ Public Class JuegoPrincipal
 
     Private Sub cargarJuego()
         Globales.Instanciadicionario.GetRandomWord()
-        MsgBox(Instanciadicionario.PalabraGenerada)
 
         Dim coordenadasEjeYCentroForm = Me.Height / 2
         Dim coordenadasEjeXCentroForm = Me.Width / 2
@@ -215,8 +214,8 @@ Public Class JuegoPrincipal
             Dim currentLabel As Label = CType(pnlJuegoPrincipal.Controls(celdaActual), Label)
             Debug.WriteLine($"Current Label: {celdaActual}")
 
-            If caracteresPermitidos.Contains(e.KeyCode.ToString().ToUpper()) Then ''si no se ha pulsado eneter, se busca si la tecla esta en abecedario, si es asi haz ....
-                LetraPresionada(currentLabel, e.KeyCode.ToString())
+            If caracteresPermitidos.Contains(e.KeyCode.ToString().ToUpper()) OrElse e.KeyValue = 192 Then ''si no se ha pulsado eneter, se busca si la tecla esta en abecedario, si es asi haz ....
+                LetraPresionada(currentLabel, If(e.KeyValue = 192, "Ñ", e.KeyCode.ToString()))
             End If
 
             If e.KeyCode = Keys.Back Then
@@ -262,7 +261,6 @@ Public Class JuegoPrincipal
     End Sub
 
     Private Sub btnApliConf_Click(sender As Object, e As EventArgs) Handles btnAplicarConfiguracion.Click
-        MsgBox("Configuración Aplicada")
         If cboSelectorDificultad.SelectedItem <> "Normal" Then
             Dim a As New JuegoPrincipal
             If cboSelectorDificultad.SelectedItem = "Avanzado" Then

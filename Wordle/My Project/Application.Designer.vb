@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Wordle.Form3
+            Me.MainForm = Global.Wordle.Autenticacion
         End Sub
     End Class
 End Namespace

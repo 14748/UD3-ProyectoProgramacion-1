@@ -29,7 +29,6 @@ Public Class Autenticacion
                     MensajeDeErrorLogin(lblLoginContraseña, "La contrasena es incorrecta")
             End Select
         Else
-            MsgBox("Usuario Logeado")
             Dim palabrita As New Wordle.JuegoPrincipal
             Globales.numeroFilas = 6
             palabrita.Show()
@@ -83,7 +82,6 @@ Public Class Autenticacion
                     MensajeDeErrorLogin(lblRegistrarReContraseña, "La contrasena no coincide")
             End Select
         Else
-            MsgBox("Usuario Registrado")
             Globales.listaUsuarios.GuardarUsuarios()
             pnlRegister.Hide()
         End If
