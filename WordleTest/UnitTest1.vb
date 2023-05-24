@@ -34,15 +34,14 @@ Imports WordleClases.Diccionario
         Dim real() As TipoAcierto = word.GreenYellowGray(pal)
         Dim expected() As TipoAcierto = {TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado, TipoAcierto.Acertado}
         Dim realEsValido = True
+
         For Each item In real
             If item <> TipoAcierto.Acertado Then
                 realEsValido = False
             End If
         Next
 
-        Dim expectedEsValido = True
-
-        Assert.IsTrue(realEsValido = expectedEsValido)
+        Assert.IsTrue(realEsValido)
     End Sub
 
     'Comprobacion achivos de diccionario
