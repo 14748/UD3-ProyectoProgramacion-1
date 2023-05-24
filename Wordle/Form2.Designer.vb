@@ -46,7 +46,7 @@ Partial Class Form2
         'btnreintentar
         '
         Me.btnreintentar.Location = New System.Drawing.Point(370, 811)
-        Me.btnreintentar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnreintentar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnreintentar.Name = "btnreintentar"
         Me.btnreintentar.Size = New System.Drawing.Size(116, 41)
         Me.btnreintentar.TabIndex = 1
@@ -56,7 +56,7 @@ Partial Class Form2
         'btnfinalizar
         '
         Me.btnfinalizar.Location = New System.Drawing.Point(749, 811)
-        Me.btnfinalizar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnfinalizar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnfinalizar.Name = "btnfinalizar"
         Me.btnfinalizar.Size = New System.Drawing.Size(116, 41)
         Me.btnfinalizar.TabIndex = 2
@@ -96,7 +96,7 @@ Partial Class Form2
         Me.txtpalabradia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtpalabradia.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold)
         Me.txtpalabradia.Location = New System.Drawing.Point(426, 34)
-        Me.txtpalabradia.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtpalabradia.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpalabradia.Name = "txtpalabradia"
         Me.txtpalabradia.Size = New System.Drawing.Size(262, 34)
         Me.txtpalabradia.TabIndex = 14
@@ -136,7 +136,7 @@ Partial Class Form2
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold)
         Me.TextBox1.Location = New System.Drawing.Point(446, 557)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(167, 28)
         Me.TextBox1.TabIndex = 20
@@ -147,7 +147,7 @@ Partial Class Form2
         '
         Me.txtestadisticas.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold)
         Me.txtestadisticas.Location = New System.Drawing.Point(496, 594)
-        Me.txtestadisticas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtestadisticas.Margin = New System.Windows.Forms.Padding(4)
         Me.txtestadisticas.Name = "txtestadisticas"
         Me.txtestadisticas.Size = New System.Drawing.Size(171, 28)
         Me.txtestadisticas.TabIndex = 24
@@ -157,7 +157,7 @@ Partial Class Form2
         'txtpartidasjugadas
         '
         Me.txtpartidasjugadas.Location = New System.Drawing.Point(821, 689)
-        Me.txtpartidasjugadas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtpartidasjugadas.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpartidasjugadas.Name = "txtpartidasjugadas"
         Me.txtpartidasjugadas.Size = New System.Drawing.Size(136, 22)
         Me.txtpartidasjugadas.TabIndex = 32
@@ -177,7 +177,7 @@ Partial Class Form2
         'txtpartidasganada
         '
         Me.txtpartidasganada.Location = New System.Drawing.Point(609, 689)
-        Me.txtpartidasganada.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtpartidasganada.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpartidasganada.Name = "txtpartidasganada"
         Me.txtpartidasganada.Size = New System.Drawing.Size(136, 22)
         Me.txtpartidasganada.TabIndex = 30
@@ -187,7 +187,7 @@ Partial Class Form2
         'txtmejorracha
         '
         Me.txtmejorracha.Location = New System.Drawing.Point(409, 693)
-        Me.txtmejorracha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtmejorracha.Margin = New System.Windows.Forms.Padding(4)
         Me.txtmejorracha.Name = "txtmejorracha"
         Me.txtmejorracha.Size = New System.Drawing.Size(136, 22)
         Me.txtmejorracha.TabIndex = 29
@@ -197,7 +197,7 @@ Partial Class Form2
         'txtrachaactual
         '
         Me.txtrachaactual.Location = New System.Drawing.Point(205, 693)
-        Me.txtrachaactual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtrachaactual.Margin = New System.Windows.Forms.Padding(4)
         Me.txtrachaactual.Name = "txtrachaactual"
         Me.txtrachaactual.Size = New System.Drawing.Size(136, 22)
         Me.txtrachaactual.TabIndex = 28
@@ -258,7 +258,7 @@ Partial Class Form2
         Me.Controls.Add(Me.txtpalabradia)
         Me.Controls.Add(Me.btnfinalizar)
         Me.Controls.Add(Me.btnreintentar)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.ResumeLayout(False)

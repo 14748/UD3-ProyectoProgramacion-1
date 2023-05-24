@@ -46,7 +46,7 @@ Public Class Form1
     }
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Globales.listOfArrays = New List(Of Diccionario.TipoAcierto())()
         Me.WindowState = FormWindowState.Maximized
 
         cboSelectorDificultad.Items.AddRange({"Normal", "Avanzado", "Experto"})
@@ -322,5 +322,9 @@ Public Class Form1
         If haCargadoElJuego Then
             EscuchadorDeTeclado = New KeyboardListener()
         End If
+    End Sub
+
+    Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Environment.Exit(0)
     End Sub
 End Class

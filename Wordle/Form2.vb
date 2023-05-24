@@ -54,14 +54,17 @@ Public Class Form2
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnreintentar.Click
         Dim frm1 As New Form1
         frm1.Show()
-        Me.Close()
+        Me.Dispose()
 
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnfinalizar.Click
-        Me.Close()
+        Me.Dispose()
     End Sub
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles lblpalabradia.Click
         lblpalabradia.Text = Globales.User.PartidasGanadas
     End Sub
 
+    Private Sub Form2_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Environment.Exit(0)
+    End Sub
 End Class
