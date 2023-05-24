@@ -48,8 +48,23 @@ Public Class JuegoPrincipal
             .Font = New Font("Arial", 18, FontStyle.Bold)
     }
 
+    ''' <summary>
+    ''' Maneja el evento Load del formulario Form1. Realiza acciones al cargar el formulario.
+    ''' - Inicializa la lista de arrays en Globales para almacenar objetos del tipo Diccionario.TipoAcierto.
+    ''' - Establece el estado de la ventana a maximizado.
+    ''' - Remueve los controles pnlConfiguracion y cboSelectorDificultad del formulario.
+    ''' - Agrega las opciones de dificultad ("Normal", "Avanzado", "Experto") al ComboBox cboSelectorDificultad.
+    ''' - Oculta los botones btnCerrarConfiguracion y btnAplicarConfiguracion.
+    ''' - Agrega el label lblDificultad al panel pnlConfiguracion.
+    ''' - Oculta el panel pnlClasificacion.
+    ''' - Llama al método cargarJuego para realizar las acciones correspondientes al cargar el juego.
+    ''' - Establece el estado haCargadoElJuego como verdadero.
+    ''' </summary>
+    ''' <param name="sender">El objeto que generó el evento (el formulario Form1).</param>
+    ''' <param name="e">Los argumentos del evento.</param>
+
     Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Globales.listOfArrays = New List(Of Diccionario.TipoAcierto())()
+        Globales.listaDeAciertosWordle = New List(Of Diccionario.TipoAcierto())()
         Me.WindowState = FormWindowState.Maximized
         Me.Controls.Remove(pnlConfiguracion)
         Me.Controls.Remove(cboSelectorDificultad)
@@ -65,14 +80,27 @@ Public Class JuegoPrincipal
         haCargadoElJuego = True
     End Sub
 
+    ''' <summary>
+    ''' Carga el juego y realiza las acciones necesarias para configurar la interfaz de usuario y las variables de juego.
+    ''' - Obtiene una palabra aleatoria del diccionario utilizando el método GetRandomWord de la instancia de Globales.Instanciadicionario.
+    ''' - Crea un nuevo Panel llamado grpContenedorTest que servirá como contenedor principal para los labels del juego.
+    ''' - Establece el tamaño y el estilo de borde del panel grpContenedorTest.
+    ''' - Asigna grpContenedorTest al panel pnlJuegoPrincipal del formulario.
+    ''' - Alinea pnlJuegoPrincipal en el centro del formulario mediante el cálculo de sus coordenadas de ubicación.
+    ''' - Agrega pnlJuegoPrincipal a la colección de controles del formulario.
+    ''' - Crea un objeto Font con la fuente "Arial", tamaño 24 y estilo en negrita para los labels del juego.
+    ''' - Utilizando bucles, crea y configura los labels del juego dentro de pnlJuegoPrincipal.
+    ''' - Crea un nuevo label llamado lbl y lo hace invisible.
+    ''' - Agrega lbl al panel pnlJuegoPrincipal.
+    ''' - Establece los valores de celdaMaximaDeFila y celdaMinimaDeFila en función del número de columnas y la celda actual.
+    ''' - Establece el estado haCargadoElJuego como verdadero.
+    ''' - Crea una nueva instancia de KeyboardListener y la asigna a la variable escuchadorDeTeclado.
+    ''' </summary>
     Private Sub cargarJuego()
         Globales.Instanciadicionario.GetRandomWord()
 
         Dim coordenadasEjeYCentroForm = Me.Height / 2
         Dim coordenadasEjeXCentroForm = Me.Width / 2
-
-        grpTeclado.Location = New Point(coordenadasEjeXCentroForm - (grpTeclado.Size.Width / 2), Me.Height - grpTeclado.Size.Height - 30)
-        grpMenu.Location = New Point(coordenadasEjeXCentroForm - (grpMenu.Size.Width / 2), 0)
 
         Dim grpContenedorTest As New Panel With {
             .Size = New Size(numeroColumnas * (tamañoLabel + margenEntreLabels) + margenEntreLabels, Globales.numeroFilas * (tamañoLabel + margenEntreLabels) + margenEntreLabels),
@@ -108,6 +136,17 @@ Public Class JuegoPrincipal
         haCargadoElJuego = True
         escuchadorDeTeclado = New KeyboardListener()
     End Sub
+
+    ''' <summary>
+    ''' Maneja la entrada del usuario cuando se presiona la tecla "Enter".
+    ''' Realiza operaciones lógicas y de interfaz basadas en la entrada y las reglas del juego.
+    ''' Verifica si la celda actual es la última celda de la fila.
+    ''' Trunca la palabra a la longitud especificada.
+    ''' Valida la palabra truncada en el diccionario.
+    ''' Actualiza la apariencia de las etiquetas y botones según los resultados de coincidencia.
+    ''' Verifica si el jugador ha ganado el juego.
+    ''' Actualiza los valores de las celdas y la palabra para la siguiente fila.
+    ''' </summary>
     Private Sub EnterPresionado()
         If celdaActual <> celdaMaximaDeFila Then
             appender.CreateAnimatedLabel(Me, "No hay suficientes letras", pnlJuegoPrincipal.Location.X + (pnlJuegoPrincipal.Width / 2), pnlJuegoPrincipal.Location.Y)
@@ -116,13 +155,13 @@ Public Class JuegoPrincipal
 
         palabraDeFilaActual = palabraDeFilaActual.Substring(0, numeroColumnas)
 
-        If Not Globales.Instanciadicionario.palbraEsValida(palabraDeFilaActual) Then
+        If Not Globales.Instanciadicionario.PalabraEsValida(palabraDeFilaActual) Then
             appender.CreateAnimatedLabel(Me, "La palabra introducida no existe en nuestro diccionario", pnlJuegoPrincipal.Location.X + (pnlJuegoPrincipal.Width / 2), pnlJuegoPrincipal.Location.Y)
             Exit Sub
         End If
 
         Dim estadoAciertosPalabraActua() As Diccionario.TipoAcierto = Globales.Instanciadicionario.GreenYellowGray(palabraDeFilaActual)
-        Globales.listOfArrays.Add(estadoAciertosPalabraActua)
+        Globales.listaDeAciertosWordle.Add(estadoAciertosPalabraActua)
 
         For i = 0 To palabraDeFilaActual.Length - 1
             Dim leterLabel As Label = CType(pnlJuegoPrincipal.Controls(i + celdaMinimaDeFila), Label)
@@ -158,6 +197,15 @@ Public Class JuegoPrincipal
         palabraDeFilaActual = ""
     End Sub
 
+    ''' <summary>
+    ''' Maneja la acción cuando se presiona la tecla "Return". Elimina la última letra ingresada en el juego.
+    ''' Verifica si la celda actual es mayor que la celda mínima permitida y, en ese caso, realiza las siguientes acciones:
+    ''' - Actualiza la palabra actual eliminando la última letra.
+    ''' - Borra el texto de la etiqueta correspondiente a la celda actual.
+    ''' - Ajusta el valor de la celda actual, disminuyéndolo en uno.
+    ''' - Muestra la palabra actualizada en la ventana de depuración.
+    ''' </summary>
+    ''' <param name="currentLabel">La etiqueta actual que se eliminará.</param>
     Private Sub ReturnPresionado(currentLabel As Label)
         If celdaActual > celdaMinimaDeFila Then
             palabraDeFilaActual = palabraDeFilaActual.Substring(0, palabraDeFilaActual.Length - 1)
@@ -168,6 +216,15 @@ Public Class JuegoPrincipal
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja la acción cuando se presiona una letra en el teclado del juego. Agrega la letra a la palabra actual y actualiza la interfaz.
+    ''' Verifica si la celda actual no es igual a la celda máxima permitida y, en caso afirmativo, realiza las siguientes acciones:
+    ''' - Aumenta el valor de la celda actual en uno.
+    ''' - Asigna la letra al texto de la etiqueta actual.
+    ''' - Agrega la letra a la palabra actual concatenándola.
+    ''' </summary>
+    ''' <param name="currentLabel">La etiqueta actual en la que se muestra la letra.</param>
+    ''' <param name="letra">La letra presionada.</param>
     Private Sub LetraPresionada(currentLabel As Label, letra As String)
         If celdaActual <> celdaMaximaDeFila Then
             celdaActual += 1
@@ -175,6 +232,16 @@ Public Class JuegoPrincipal
             palabraDeFilaActual += currentLabel.Text
         End If
     End Sub
+
+    ''' <summary>
+    ''' Maneja el evento clic de los botones de letras. Agrega la letra correspondiente a la palabra actual y actualiza la interfaz.
+    ''' Verifica si la celda actual es menor o igual a la cantidad total de celdas permitidas en el juego.
+    ''' En caso afirmativo, realiza las siguientes acciones:
+    ''' - Obtiene el botón y la etiqueta actual correspondientes al estado de la celda actual.
+    ''' - Llama al método LetraPresionada para agregar la letra a la palabra actual y actualizar la interfaz.
+    ''' </summary>
+    ''' <param name="sender">El botón que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnQ.Click, btnW.Click, btnR.Click, btnT.Click, btnY.Click, btnU.Click, btnI.Click, btnE.Click, btnO.Click, btnP.Click, btnA.Click, btnS.Click, btnD.Click, btnF.Click, btnG.Click, btnH.Click, btnJ.Click, btnK.Click, btnL.Click, btnÑ.Click, btnZ.Click, btnX.Click, btnC.Click, btnV.Click, btnB.Click, btnN.Click, btnM.Click
         If celdaActual <= Globales.numeroFilas * numeroColumnas Then
             Dim button As Button = CType(sender, Button)
@@ -183,12 +250,29 @@ Public Class JuegoPrincipal
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento clic del botón "ENVIAR". Realiza las acciones correspondientes cuando se envía la palabra actual.
+    ''' Verifica si la celda actual es menor o igual a la cantidad total de celdas permitidas en el juego.
+    ''' En caso afirmativo, realiza las siguientes acciones:
+    ''' - Llama al método EnterPresionado para procesar la palabra actual y realizar las validaciones y acciones correspondientes.
+    ''' </summary>
+    ''' <param name="sender">El botón "ENVIAR" que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub btnENVIAR_Click(sender As Object, e As EventArgs) Handles btnENVIAR.Click
         If celdaActual <= Globales.numeroFilas * numeroColumnas Then
             EnterPresionado()
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento clic del botón "ELIMINAR". Realiza las acciones correspondientes para eliminar la última letra ingresada.
+    ''' Verifica si la celda actual es menor o igual a la cantidad total de celdas permitidas en el juego.
+    ''' En caso afirmativo, realiza las siguientes acciones:
+    ''' - Obtiene la etiqueta actual correspondiente a la celda actual.
+    ''' - Llama al método ReturnPresionado para eliminar la última letra ingresada.
+    ''' </summary>
+    ''' <param name="sender">El botón "ELIMINAR" que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub btnELIMINAR_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If celdaActual <= Globales.numeroFilas * numeroColumnas Then
             Dim currentLabel As Label = CType(pnlJuegoPrincipal.Controls(celdaActual), Label)
@@ -196,6 +280,15 @@ Public Class JuegoPrincipal
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento Resize del formulario. Realiza ajustes de posicionamiento en función del cambio de tamaño del formulario.
+    ''' - Calcula la posición central en los ejes Y y X del formulario.
+    ''' - Ajusta la ubicación del grupo de teclado en la parte inferior central del formulario.
+    ''' - Ajusta la ubicación del grupo de menú en la parte superior central del formulario.
+    ''' - Si el juego ha sido cargado, ajusta la ubicación del panel principal del juego en el centro del formulario.
+    ''' </summary>
+    ''' <param name="sender">El formulario.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         Dim posY = Me.Height / 2
         Dim posX = Me.Width / 2
@@ -206,6 +299,18 @@ Public Class JuegoPrincipal
             pnlJuegoPrincipal.Location = New Point((Me.Width - pnlJuegoPrincipal.Width) / 2, (Me.Height - pnlJuegoPrincipal.Height) / 2)
         End If
     End Sub
+
+    ''' <summary>
+    ''' Maneja el evento KeyDown del objeto KeyboardListener. Realiza acciones en función de la tecla presionada.
+    ''' Verifica si la celda actual es menor o igual a la cantidad total de celdas permitidas en el juego.
+    ''' En caso afirmativo, realiza las siguientes acciones según la tecla presionada:
+    ''' - Si la tecla presionada es un carácter permitido (letra del abecedario o Ñ), llama al método LetraPresionada para agregar la letra a la palabra actual y actualizar la interfaz.
+    ''' - Si la tecla presionada es la tecla de retroceso (Backspace), llama al método ReturnPresionado para eliminar la última letra ingresada.
+    ''' - Si la tecla presionada es la tecla Enter (Return), llama al método EnterPresionado para procesar la palabra actual y realizar las validaciones y acciones correspondientes.
+    ''' - Marca el evento como manipulado (Handled) para evitar que se propague a otros controladores de eventos.
+    ''' </summary>
+    ''' <param name="sender">El objeto KeyboardListener que generó el evento.</param>
+    ''' <param name="e">Los argumentos del evento KeyDown.</param>
     Private Sub _keyboardListener_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles escuchadorDeTeclado.KeyDown
 
         Dim caracteresPermitidos As String = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
@@ -231,6 +336,17 @@ Public Class JuegoPrincipal
             Debug.WriteLine(palabraDeFilaActual)
         End If
     End Sub
+
+    ''' <summary>
+    ''' Maneja el evento clic del botón "config". Realiza acciones para mostrar y configurar la ventana de configuración.
+    ''' Agrega los controles necesarios al formulario y los muestra.
+    ''' - Agrega el selector de dificultad (combobox) y el panel de configuración al formulario.
+    ''' - Agrega los botones de cerrar configuración y aplicar configuración al panel de configuración.
+    ''' - Muestra el panel de configuración, el selector de dificultad y los botones correspondientes.
+    ''' - Asegura que el panel de configuración, los botones de cerrar y aplicar configuración, y el selector de dificultad se muestren en primer plano.
+    ''' </summary>
+    ''' <param name="sender">El botón "config" que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub btnconfig_Click(sender As Object, e As EventArgs) Handles btnconfig.Click
         Me.Controls.Add(cboSelectorDificultad)
         Me.Controls.Add(pnlConfiguracion)
@@ -247,6 +363,16 @@ Public Class JuegoPrincipal
         btnAplicarConfiguracion.BringToFront()
         cboSelectorDificultad.BringToFront()
     End Sub
+
+    ''' <summary>
+    ''' Maneja el evento clic del botón "cerrar" en la ventana de configuración. Realiza acciones para cerrar y ocultar la ventana de configuración.
+    ''' Remueve los controles correspondientes del formulario.
+    ''' - Remueve el botón de cerrar configuración del panel de configuración y del formulario principal.
+    ''' - Remueve el panel de configuración y el selector de dificultad del formulario principal.
+    ''' Oculta el botón de cerrar configuración, el botón de aplicar configuración, el panel de configuración y el selector de dificultad.
+    ''' </summary>
+    ''' <param name="sender">El botón "cerrar" que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub cerrar_Click(sender As Object, e As EventArgs) Handles btnCerrarConfiguracion.Click
         pnlConfiguracion.Controls.Remove(btnCerrarConfiguracion)
         Me.Controls.Remove(btnCerrarConfiguracion)
@@ -260,6 +386,17 @@ Public Class JuegoPrincipal
 
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento clic del botón "Aplicar Configuración" en la ventana de configuración. Realiza acciones para aplicar la configuración seleccionada.
+    ''' Verifica si se ha seleccionado una opción de dificultad distinta a "Normal".
+    ''' En caso afirmativo, realiza las siguientes acciones:
+    ''' - Crea una nueva instancia del formulario JuegoPrincipal.
+    ''' - Según la opción de dificultad seleccionada, establece el número de filas en función de la dificultad elegida.
+    ''' - Muestra el formulario JuegoPrincipal.
+    ''' - Cierra y libera los recursos del formulario actual.
+    ''' </summary>
+    ''' <param name="sender">El botón "Aplicar Configuración" que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub btnApliConf_Click(sender As Object, e As EventArgs) Handles btnAplicarConfiguracion.Click
         If cboSelectorDificultad.SelectedItem <> "Normal" Then
             Dim a As New JuegoPrincipal
@@ -275,6 +412,21 @@ Public Class JuegoPrincipal
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento clic del botón "btnbarras" en la ventana de clasificación. Realiza acciones para mostrar u ocultar la clasificación.
+    ''' Si no se ha accionado la clasificación anteriormente:
+    ''' - Verifica si el panel "pnlInteriorClasificacion" es nulo. Si es así, crea el panel y agrega las etiquetas de encabezado y los datos de clasificación.
+    ''' - Ajusta el tamaño y la posición del panel "pnlInteriorClasificacion" para que se muestre correctamente en el formulario.
+    ''' - Agrega el panel "pnlInteriorClasificacion" al panel "pnlClasificacion".
+    ''' - Muestra el panel "pnlClasificacion" y el panel "pnlInteriorClasificacion".
+    ''' - Actualiza el estado de "haAccionadoClasificacion" a verdadero.
+    ''' Si se ha accionado la clasificación anteriormente:
+    ''' - Muestra u oculta el panel "pnlInteriorClasificacion" según su estado actual.
+    ''' - Muestra u oculta el panel "pnlClasificacion" según su estado actual.
+    ''' - Actualiza el estado de "haAccionadoClasificacion" a su estado opuesto.
+    ''' </summary>
+    ''' <param name="sender">El botón "btnbarras" que se ha presionado.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub btnbarras_Click(sender As Object, e As EventArgs) Handles btnbarras.Click
         If Not haAccionadoClasificacion Then
             If pnlInteriorClasificacion Is Nothing Then
@@ -344,18 +496,38 @@ Public Class JuegoPrincipal
         haAccionadoClasificacion = Not haAccionadoClasificacion
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento Deactivate del formulario principal. Realiza acciones cuando el formulario pierde el foco.
+    ''' Si se ha cargado el juego previamente:
+    ''' - Libera los recursos del escuchador de teclado llamando al método Dispose().
+    ''' </summary>
+    ''' <param name="sender">El objeto que generó el evento.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub Form1_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
         If haCargadoElJuego Then
             EscuchadorDeTeclado.Dispose()
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento Activated del formulario principal. Realiza acciones cuando el formulario obtiene el foco.
+    ''' Si se ha cargado el juego previamente:
+    ''' - Crea una nueva instancia del escuchador de teclado.
+    ''' </summary>
+    ''' <param name="sender">El objeto que generó el evento.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         If haCargadoElJuego Then
             EscuchadorDeTeclado = New KeyboardListener()
         End If
     End Sub
 
+    ''' <summary>
+    ''' Maneja el evento FormClosed del formulario principal. Realiza acciones cuando el formulario se cierra.
+    ''' - Realiza una salida del entorno de ejecución para terminar la aplicación.
+    ''' </summary>
+    ''' <param name="sender">El objeto que generó el evento.</param>
+    ''' <param name="e">Los argumentos del evento.</param>
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Environment.Exit(0)
     End Sub
